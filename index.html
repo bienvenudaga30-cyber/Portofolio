@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio | Data Science & Design</title>
+    <meta name="description" content="Portfolio d'un étudiant en Digitalisation et Sciences de Données. Double compétence data & design pour des solutions intelligentes et esthétiques.">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="images/logo.png" type="image/png">
+    
+    <!-- Polices -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    
+    <!-- SEO -->
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="Portfolio | Data Science & Design">
+    <meta property="og:description" content="Architecte du pont entre la data et le design. Solutions intelligentes et esthétiquement impactantes.">
+    <meta property="og:type" content="website">
+</head>
+<body>
+    <!-- Navigation -->
+    <header class="header">
+        <div class="container">
+            <nav class="nav">
+                <a href="#" class="logo">
+                    <img src="images/logo.png" alt="Logo" width="40" height="40">
+                    <span>Portfolio</span>
+                </a>
+                <button class="menu-toggle" aria-label="Menu" aria-expanded="false">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <ul class="nav-links">
+                    <li><a href="#hero">Accueil</a></li>
+                    <li><a href="#about">À propos</a></li>
+                    <li><a href="#skills">Compétences</a></li>
+                    <li><a href="#projects">Projets</a></li>
+                    <li><a href="#contact" class="btn-contact">Me contacter</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="hero" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1 class="hero-title">Architecte du pont entre la <span class="highlight">data</span> et le <span class="highlight">design</span></h1>
+                    <p class="hero-subtitle">
+                        Je construis des ponts entre les besoins métier concrets et le monde technique, en utilisant la data pour modéliser, prédire et recommander des actions.
+                    </p>
+                    <div class="hero-cta">
+                        <a href="#projects" class="btn btn-primary">Voir mes projets</a>
+                        <a href="#contact" class="btn btn-secondary">Me contacter</a>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <img src="images/profile.jpg" alt="Photo professionnelle" width="400" height="500">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <h2 class="section-title">À propos</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>
+                        Étudiant à <strong>Sèmè City Institute of Technology and Innovation</strong> en Digitalisation et Sciences de Données, je combine la rigueur analytique d'un data scientist et l'agilité créative d'un designer-développeur.
+                    </p>
+                    <p>
+                        Je ne me contente pas d'analyser les données ; je donne une forme persuasive aux insights. Mon approche unique permet de créer des solutions à la fois intelligentes et esthétiquement impactantes.
+                    </p>
+                    <p class="about-differentiation">
+                        <strong>Différenciation :</strong> L'architecte du pont entre la data et le design.
+                    </p>
+                </div>
+                <div class="about-target">
+                    <h3>Public cible</h3>
+                    <ul>
+                        <li>Partenaires académiques</li>
+                        <li>Premiers clients freelance</li>
+                        <li>Startups innovantes</li>
+                        <li>Recruteurs d'entreprises tech</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="skills">
+        <div class="container">
+            <h2 class="section-title">Compétences</h2>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <div class="skill-icon">🛠️</div>
+                    <h3>Pilier Technique & Analytique</h3>
+                    <ul>
+                        <li><strong>Data Analysis & Visualisation :</strong> Nettoyage, analyse et interprétation de données (SQL, Python, R) avec création de dashboards clairs.</li>
+                        <li><strong>Développement Web Front-End :</strong> Conception et réalisation de sites web modernes, responsives et performants (HTML, CSS, JavaScript).</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <div class="skill-icon">🎨</div>
+                    <h3>Pilier Créatif & Design</h3>
+                    <ul>
+                        <li><strong>Design Graphique & Identité Visuelle :</strong> Création d'identités cohérentes (logos, cartes de visite, supports print) et de contenus visuels engageants.</li>
+                        <li><strong>Design UI/UX & Production Digitale :</strong> Conception d'interfaces utilisateur intuitives et production de vidéos motion design.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="projects">
+        <div class="container">
+            <h2 class="section-title">Projets récents</h2>
+            <p class="section-subtitle">Des solutions concrètes qui démontrent ma double compétence</p>
+            
+            <div class="projects-grid">
+                <article class="project-card">
+                    <div class="project-image">
+                        <img src="images/projects/project-sakila.jpg" alt="Analyse des tendances client d'une vidéothèque" width="600" height="400">
+                    </div>
+                    <div class="project-content">
+                        <h3>Analyse des tendances client d'une vidéothèque (Sakila)</h3>
+                        <p>
+                            J'ai interrogé et nettoyé cette base pour révéler les préférences des clients, les pics d'activité et les performances des films. Mes dashboards clairs permettent de prendre des décisions commerciales en un coup d'œil.
+                        </p>
+                        <div class="project-tags">
+                            <span class="tag">Data Analysis</span>
+                            <span class="tag">SQL</span>
+                            <span class="tag">Visualisation</span>
+                        </div>
+                    </div>
+                </article>
+                
+                <article class="project-card">
+                    <div class="project-image">
+                        <img src="images/projects/project-mimic.jpg" alt="Exploration de données de soins intensifs" width="600" height="400">
+                    </div>
+                    <div class="project-content">
+                        <h3>Exploration de données de soins intensifs (MIMIC-III)</h3>
+                        <p>
+                            Sur un échantillon de cette base complexe, j'ai réalisé une analyse exploratoire pour identifier des indicateurs clés de santé. J'ai créé des visualisations qui synthétisent des informations médicales denses.
+                        </p>
+                        <div class="project-tags">
+                            <span class="tag">Data Science</span>
+                            <span class="tag">Python</span>
+                            <span class="tag">Visualisation médicale</span>
+                        </div>
+                    </div>
+                </article>
+            </div>
+            
+            <div class="projects-cta">
+                <p>Chaque projet démontre ma capacité à transformer des données complexes en insights actionnables et visuellement impactants.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title">Travaillons ensemble</h2>
+            <p class="section-subtitle">
+                Je recherche un stage ou une première opportunité professionnelle stimulante dans un environnement tech/innovation qui valorise la double compétence data & design.
+            </p>
+            
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h3>Disponibilité</h3>
+                    <p>Ouvert aux opportunités de :</p>
+                    <ul>
+                        <li>Stage en data science / analyse</li>
+                        <li>Projets freelance data & design</li>
+                        <li>Collaborations avec startups innovantes</li>
+                        <li>Contrats en entreprise tech</li>
+                    </ul>
+                    
+                    <div class="contact-cta">
+                        <p><strong>Action attendue :</strong> Cliquez sur le bouton ci-dessous pour entamer une conversation.</p>
+                        <a href="mailto:contact@exemple.com" class="btn btn-primary">Me contacter par email</a>
+                    </div>
+                </div>
+                
+                <div class="contact-form">
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label for="name">Nom complet</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Envoyer le message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <img src="images/logo.png" alt="Logo" width="30" height="30">
+                    <span>Portfolio</span>
+                </div>
+                <p class="footer-tagline">Confiance créative • Clarté • Innovation pragmatique</p>
+                <p class="footer-copyright">
+                    &copy; <span id="currentYear"></span> Étudiant à Sèmè City Institute of Technology and Innovation. Tous droits réservés.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="js/main.js"></script>
+</body>
+</html>
