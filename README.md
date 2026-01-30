@@ -1,27 +1,18 @@
-# Portfolio Professionnel - Data Science & Design
+# Portfolio Bienvenu DAGA
 
-Portfolio minimaliste et professionnel inspiré du style Silicon Valley, mettant en avant une double compétence en data science et design.
+Portfolio professionnel minimaliste inspiré du style Silicon Valley, présentant une double compétence en Data Science et Design.
 
-## 📋 Caractéristiques
+## 🎯 Objectif
 
-- **Design minimaliste** : Inspiré du style Mark Zuckerberg - sobriété, clarté, efficacité
-- **Responsive** : Mobile-first, s'adapte à tous les écrans
-- **Performant** : Code optimisé, sans frameworks lourds
-- **Accessible** : Respecte les normes d'accessibilité WCAG
+Obtenir un stage ou une première opportunité professionnelle stimulante dans un environnement tech/innovation qui valorise la double compétence data & design.
+
+## ✨ Caractéristiques
+
+- **Design minimaliste** : Style Silicon Valley (sobriété, clarté, crédibilité)
+- **Responsive mobile-first** : S'adapte parfaitement à tous les écrans
+- **Performant** : Code optimisé, chargement rapide
+- **Accessible** : Respect des normes WCAG
 - **SEO optimisé** : Balisage sémantique et méta-données
-- **Facile à déployer** : Prêt pour GitHub Pages ou Netlify
+- **Prêt au déploiement** : Configuration simple pour GitHub Pages ou Netlify
 
 ## 🎨 Palette de couleurs
-
-- **Noir** : `#000000` - Texte principal
-- **Gris foncé** : `#333333` - Texte secondaire
-- **Bleu** : `#0066FF` - Accent, liens, boutons
-- **Gris clair** : `#F5F5F7` - Arrière-plans secondaires
-- **Blanc** : `#FFFFFF` - Arrière-plan principal
-
-## 🔤 Typographie
-
-- **Inter** : Police principale (sans-serif moderne)
-- **Space Grotesk** : Police pour les titres
-
-## 📁 Structure des fichiers
