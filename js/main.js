@@ -87,54 +87,65 @@ document.addEventListener('DOMContentLoaded', function() {
     /**
      * Gestion du formulaire de contact
      */
-    function initContactForm() {
-        if (!contactForm) return;
+ // Dans js/main.js - Remplacez la fonction initContactForm
+function initContactForm() {
+    const contactForm = document.getElementById('contactForm');
+    
+    if (!contactForm) return;
+    
+    contactForm.addEventListener('submit', async function(e) {
+        e.preventDefault();
         
-        contactForm.addEventListener('submit', async function(e) {
-            e.preventDefault();
+        // Récupérer les valeurs du formulaire
+        const formData = new FormData(this);
+        const data = Object.fromEntries(formData);
+        
+        // Validation
+        if (!data.name || !data.email || !data.message) {
+            showFormMessage('Veuillez remplir tous les champs obligatoires.', 'error');
+            return;
+        }
+        
+        if (!isValidEmail(data.email)) {
+            showFormMessage('Veuillez entrer une adresse email valide.', 'error');
+            return;
+        }
+        
+        try {
+            // Afficher l'état de chargement
+            this.classList.add('loading');
             
-            // Récupérer les valeurs du formulaire
-            const formData = new FormData(this);
-            const data = Object.fromEntries(formData);
+            // Envoyer la requête à votre backend
+            const response = await fetch('https://votre-backend-url.vercel.app/send-email', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    name: data.name,
+                    email: data.email,
+                    company: data.company || '',
+                    message: data.message
+                })
+            });
             
-            // Validation basique
-            if (!data.name || !data.email || !data.message) {
-                showFormMessage('Veuillez remplir tous les champs obligatoires.', 'error');
-                return;
-            }
+            const result = await response.json();
             
-            if (!isValidEmail(data.email)) {
-                showFormMessage('Veuillez entrer une adresse email valide.', 'error');
-                return;
-            }
-            
-            // Simulation d'envoi (à remplacer par un vrai service)
-            try {
-                // En mode développement, on simule juste l'envoi
-                console.log('Données du formulaire:', data);
-                
-                // Simuler un délai d'envoi
-                this.classList.add('loading');
-                
-                await new Promise(resolve => setTimeout(resolve, 1000));
-                
-                // Afficher le message de succès
-                showFormMessage('Message envoyé avec succès ! Je vous répondrai dans les plus brefs délais.', 'success');
-                
-                // Réinitialiser le formulaire
+            if (response.ok) {
+                showFormMessage('Message envoyé avec succès ! Une confirmation vous a été envoyée par email.', 'success');
                 this.reset();
-                
-                // Remettre le focus sur le premier champ
-                this.querySelector('input').focus();
-                
-            } catch (error) {
-                console.error('Erreur:', error);
-                showFormMessage('Une erreur est survenue. Veuillez réessayer.', 'error');
-            } finally {
-                this.classList.remove('loading');
+            } else {
+                throw new Error(result.error || 'Erreur lors de l\'envoi');
             }
-        });
-    }
+            
+        } catch (error) {
+            console.error('Erreur:', error);
+            showFormMessage('Une erreur est survenue. Veuillez réessayer ou m\'écrire directement à bienvenudaga30@gmail.com', 'error');
+        } finally {
+            this.classList.remove('loading');
+        }
+    });
+}
     
     /**
      * Valider un email
