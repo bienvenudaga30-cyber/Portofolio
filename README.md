@@ -4,7 +4,7 @@ Portfolio professionnel minimaliste inspiré du style Silicon Valley, présentan
 
 ## 🎯 Objectif
 
-Obtenir un stage ou une première opportunité professionnelle stimulante dans un environnement tech/innovation qui valorise la double compétence data & design.
+Obtenir un stage ou une première opportunité professionnelle (Freelance) stimulante dans un environnement tech/innovation qui valorise la double compétence data & design.
 
 ## ✨ Caractéristiques
 
