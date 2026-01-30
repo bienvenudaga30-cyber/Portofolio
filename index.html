@@ -1,305 +1,901 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bienvenu DAGA | Data Science & Design</title>
-    <meta name="description" content="Étudiant en Digitalisation et Sciences de Données à Sèmè City Institute. Double compétence data & design pour des solutions intelligentes et esthétiques.">
+/* ==========================================================================
+   Variables & Reset - Style Silicon Valley Minimaliste
+   ========================================================================== */
+
+:root {
+    /* Palette de couleurs sobre - Style Mark Zuckerberg */
+    --color-primary: #000000;
+    --color-secondary: #333333;
+    --color-accent: #0066CC;
+    --color-light: #F8F9FA;
+    --color-white: #FFFFFF;
+    --color-gray: #6C757D;
+    --color-light-gray: #E9ECEF;
+    --color-border: #DEE2E6;
     
-    <!-- Favicon -->
-    <link rel="icon" href="images/logo.png" type="image/png">
+    /* Typographie - Polices professionnelles */
+    --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    --font-mono: 'Roboto Mono', 'Courier New', monospace;
     
-    <!-- Polices -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Roboto+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+    /* Espacements systématiques */
+    --space-xs: 0.5rem;
+    --space-sm: 1rem;
+    --space-md: 1.5rem;
+    --space-lg: 2rem;
+    --space-xl: 3rem;
+    --space-xxl: 4rem;
     
-    <!-- CSS -->
-    <link rel="stylesheet" href="css/style.css">
+    /* Bordures */
+    --radius-sm: 4px;
+    --radius-md: 8px;
+    --radius-lg: 12px;
     
-    <!-- SEO -->
-    <meta name="robots" content="index, follow">
-    <meta property="og:title" content="Bienvenu DAGA | Data Science & Design">
-    <meta property="og:description" content="Étudiant en Digitalisation et Sciences de Données. Architecte du pont entre la data et le design.">
-    <meta property="og:type" content="website">
-</head>
-<body>
-    <!-- Navigation -->
-    <header class="header">
-        <div class="container">
-            <nav class="nav">
-                <a href="#" class="logo">
-                    <span class="logo-text">BD</span>
-                </a>
-                <button class="menu-toggle" aria-label="Menu" aria-expanded="false">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </button>
-                <ul class="nav-links">
-                    <li><a href="#hero">Accueil</a></li>
-                    <li><a href="#about">À propos</a></li>
-                    <li><a href="#skills">Compétences</a></li>
-                    <li><a href="#projects">Projets</a></li>
-                    <li><a href="#contact" class="btn-contact">Contact</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
+    /* Ombres minimales */
+    --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.03);
+    --shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.02);
+    
+    /* Transitions */
+    --transition-fast: 150ms ease;
+    --transition-base: 250ms ease;
+    --transition-slow: 350ms ease;
+}
 
-    <!-- Hero Section -->
-    <section id="hero" class="hero">
-        <div class="container">
-            <div class="hero-content">
-                <div class="hero-text">
-                    <h1 class="hero-title">
-                        <span class="hero-title-line">Je construis des ponts</span>
-                        <span class="hero-title-line">entre la <span class="highlight">data</span></span>
-                        <span class="hero-title-line">et le <span class="highlight">design</span></span>
-                    </h1>
-                    <p class="hero-subtitle">
-                        Étudiant en Bachelor Digitalisation & Sciences de Données à Sèmè City Institute.
-                        Je transforme les données complexes en solutions visuelles impactantes.
-                    </p>
-                    <div class="hero-cta">
-                        <a href="#projects" class="btn btn-primary">Voir mes projets</a>
-                        <a href="#contact" class="btn btn-secondary">Contact rapide</a>
-                    </div>
-                </div>
-                <div class="hero-image">
-                    <img src="images/profile.jpg" alt="Bienvenu DAGA" width="400" height="500" loading="lazy">
-                </div>
-            </div>
-        </div>
-    </section>
+/* Reset minimaliste */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-    <!-- About Section -->
-    <section id="about" class="about">
-        <div class="container">
-            <h2 class="section-title">À propos</h2>
-            <div class="about-content">
-                <div class="about-text">
-                    <p class="about-intro">
-                        <strong>Bienvenu DAGA</strong> – Étudiant en Bachelor Digitalisation et Sciences de Données au 
-                        <strong>Sèmè City Institute of Technology and Innovation</strong>.
-                    </p>
-                    <p>
-                        Je spécialise dans la création de ponts entre les besoins métier concrets et le monde technique, 
-                        utilisant la data pour modéliser, prédire et recommander des actions stratégiques.
-                    </p>
-                    <div class="about-differentiation">
-                        <h3>Mon approche unique</h3>
-                        <p>Je combine la rigueur analytique d'un data scientist et l'agilité créative d'un designer-développeur. 
-                        Je ne me contente pas d'analyser les données ; je leur donne une forme persuasive et impactante.</p>
-                    </div>
-                </div>
-                <div class="about-target">
-                    <h3>Je travaille avec</h3>
-                    <ul class="target-list">
-                        <li>Partenaires académiques</li>
-                        <li>Premiers clients freelance</li>
-                        <li>Startups innovantes</li>
-                        <li>Recruteurs d'entreprises tech</li>
-                    </ul>
-                    <div class="about-education">
-                        <h4>Formation</h4>
-                        <p><strong>Sèmè City Institute of Technology and Innovation</strong><br>
-                        Bachelor en Digitalisation et Sciences de Données</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+html {
+    scroll-behavior: smooth;
+    font-size: 16px;
+}
 
-    <!-- Skills Section -->
-    <section id="skills" class="skills">
-        <div class="container">
-            <h2 class="section-title">Compétences</h2>
-            <div class="skills-grid">
-                <div class="skill-category">
-                    <h3>🛠️ Technique & Analytique</h3>
-                    <ul class="skill-list">
-                        <li>
-                            <strong>Data Analysis & Visualisation</strong>
-                            <p>Nettoyage, analyse et interprétation de données (SQL, Python, R) avec création de dashboards clairs et actionnables.</p>
-                            <div class="skill-tags">
-                                <span class="skill-tag">SQL</span>
-                                <span class="skill-tag">Python</span>
-                                <span class="skill-tag">R</span>
-                                <span class="skill-tag">Tableau</span>
-                            </div>
-                        </li>
-                        <li>
-                            <strong>Développement Web Front-End</strong>
-                            <p>Conception et réalisation de sites web modernes, responsives et performants.</p>
-                            <div class="skill-tags">
-                                <span class="skill-tag">HTML5</span>
-                                <span class="skill-tag">CSS3</span>
-                                <span class="skill-tag">JavaScript</span>
-                                <span class="skill-tag">Responsive Design</span>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-                <div class="skill-category">
-                    <h3>🎨 Créatif & Design</h3>
-                    <ul class="skill-list">
-                        <li>
-                            <strong>Design Graphique & Identité Visuelle</strong>
-                            <p>Création d'identités cohérentes (logos, cartes de visite, supports print) et de contenus visuels engageants.</p>
-                            <div class="skill-tags">
-                                <span class="skill-tag">Adobe Creative Suite</span>
-                                <span class="skill-tag">Figma</span>
-                                <span class="skill-tag">Brand Identity</span>
-                            </div>
-                        </li>
-                        <li>
-                            <strong>Design UI/UX & Production Digitale</strong>
-                            <p>Conception d'interfaces utilisateur intuitives et production de vidéos motion design pour le web et les réseaux sociaux.</p>
-                            <div class="skill-tags">
-                                <span class="skill-tag">UI/UX Design</span>
-                                <span class="skill-tag">Motion Design</span>
-                                <span class="skill-tag">Prototyping</span>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
+body {
+    font-family: var(--font-primary);
+    color: var(--color-secondary);
+    line-height: 1.6;
+    background-color: var(--color-white);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
 
-    <!-- Projects Section -->
-    <section id="projects" class="projects">
-        <div class="container">
-            <h2 class="section-title">Projets</h2>
-            <p class="section-subtitle">Solutions concrètes démontrant ma double compétence data & design</p>
-            
-            <div class="projects-grid">
-                <article class="project-card">
-                    <div class="project-image">
-                        <img src="images/projects/project-sakila.jpg" alt="Dashboard d'analyse Sakila" width="600" height="400" loading="lazy">
-                    </div>
-                    <div class="project-content">
-                        <h3>Analyse des tendances client - Vidéothèque Sakila</h3>
-                        <p>Interrogation et nettoyage de base de données pour révéler les préférences clients, pics d'activité et performances des films. 
-                        Création de dashboards permettant des décisions commerciales en un coup d'œil.</p>
-                        <div class="project-tags">
-                            <span class="project-tag">SQL</span>
-                            <span class="project-tag">Data Analysis</span>
-                            <span class="project-tag">Data Visualisation</span>
-                            <span class="project-tag">Dashboard</span>
-                        </div>
-                        <div class="project-impact">
-                            <strong>Impact :</strong> Optimisation des décisions commerciales basées sur les données clients.
-                        </div>
-                    </div>
-                </article>
-                
-                <article class="project-card">
-                    <div class="project-image">
-                        <img src="images/projects/project-mimic.jpg" alt="Visualisation données MIMIC-III" width="600" height="400" loading="lazy">
-                    </div>
-                    <div class="project-content">
-                        <h3>Exploration de données de soins intensifs - MIMIC-III</h3>
-                        <p>Analyse exploratoire sur un échantillon de cette base médicale complexe pour identifier des indicateurs clés de santé. 
-                        Création de visualisations synthétisant des informations médicales denses pour une compréhension rapide.</p>
-                        <div class="project-tags">
-                            <span class="project-tag">Python</span>
-                            <span class="project-tag">Data Science</span>
-                            <span class="project-tag">Visualisation Médicale</span>
-                            <span class="project-tag">EDA</span>
-                        </div>
-                        <div class="project-impact">
-                            <strong>Impact :</strong> Révélation d'insights médicaux complexes sous forme visuelle accessible.
-                        </div>
-                    </div>
-                </article>
-            </div>
-            
-            <div class="projects-note">
-                <p>Chaque projet démontre ma capacité à transformer des données complexes en insights visuels clairs et actionnables.</p>
-            </div>
-        </div>
-    </section>
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--space-md);
+}
 
-    <!-- Contact Section -->
-    <section id="contact" class="contact">
-        <div class="container">
-            <h2 class="section-title">Travaillons ensemble</h2>
-            <p class="section-subtitle">
-                Je recherche un stage ou une première opportunité professionnelle stimulante valorisant la double compétence data & design.
-            </p>
-            
-            <div class="contact-content">
-                <div class="contact-info">
-                    <h3>Disponibilité</h3>
-                    <ul class="availability-list">
-                        <li>Stage en data science / analyse</li>
-                        <li>Projets freelance data & design</li>
-                        <li>Collaborations avec startups</li>
-                        <li>Opportunités en entreprise tech</li>
-                    </ul>
-                    
-                    <div class="contact-direct">
-                        <h4>Contact direct</h4>
-                        <p>Pour une discussion rapide sur vos besoins en data visualisation ou design.</p>
-                        <a href="mailto:bienvenu.daga@example.com" class="btn btn-primary">
-                            <span class="btn-icon">✉️</span>
-                            bienvenu.daga@example.com
-                        </a>
-                    </div>
-                </div>
-                
-                <div class="contact-form-container">
-                    <h3>Envoyez un message</h3>
-                    <form id="contactForm" class="contact-form">
-                        <div class="form-group">
-                            <label for="name" class="form-label">Nom complet</label>
-                            <input type="text" id="name" name="name" class="form-input" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="email" class="form-label">Email</label>
-                            <input type="email" id="email" name="email" class="form-input" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="company" class="form-label">Entreprise / Organisation</label>
-                            <input type="text" id="company" name="company" class="form-input">
-                        </div>
-                        <div class="form-group">
-                            <label for="message" class="form-label">Message</label>
-                            <textarea id="message" name="message" class="form-textarea" rows="4" required></textarea>
-                        </div>
-                        <button type="submit" class="btn btn-primary btn-submit">
-                            <span class="btn-icon">↗</span>
-                            Envoyer le message
-                        </button>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </section>
+/* ==========================================================================
+   Typographie - Clarté et lisibilité
+   ========================================================================== */
 
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-logo">
-                    <span class="logo-text">BD</span>
-                    <span class="footer-name">Bienvenu DAGA</span>
-                </div>
-                <p class="footer-tagline">Confiance créative • Clarté • Innovation pragmatique</p>
-                <div class="footer-info">
-                    <p>Étudiant en Bachelor Digitalisation et Sciences de Données</p>
-                    <p>Sèmè City Institute of Technology and Innovation</p>
-                </div>
-                <p class="footer-copyright">
-                    &copy; <span id="currentYear"></span> Bienvenu DAGA. Portfolio professionnel.
-                </p>
-            </div>
-        </div>
-    </footer>
+h1, h2, h3, h4 {
+    font-weight: 600;
+    line-height: 1.2;
+    color: var(--color-primary);
+    margin-bottom: var(--space-sm);
+}
 
-    <!-- JavaScript -->
-    <script src="js/main.js"></script>
-</body>
-</html>
+h1 {
+    font-size: clamp(2rem, 5vw, 3rem);
+}
+
+h2 {
+    font-size: clamp(1.75rem, 4vw, 2.5rem);
+}
+
+h3 {
+    font-size: clamp(1.25rem, 3vw, 1.75rem);
+}
+
+h4 {
+    font-size: clamp(1.1rem, 2.5vw, 1.25rem);
+}
+
+p {
+    margin-bottom: var(--space-sm);
+    color: var(--color-secondary);
+    font-size: clamp(1rem, 2vw, 1.125rem);
+}
+
+.highlight {
+    color: var(--color-accent);
+    font-weight: 600;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: var(--space-sm);
+    position: relative;
+    padding-bottom: var(--space-sm);
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background-color: var(--color-accent);
+}
+
+.section-subtitle {
+    text-align: center;
+    color: var(--color-gray);
+    max-width: 700px;
+    margin: 0 auto var(--space-xl);
+    font-size: 1.125rem;
+}
+
+/* ==========================================================================
+   Composants réutilisables
+   ========================================================================== */
+
+/* Boutons - Minimalistes mais cliquables */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.875rem 1.75rem;
+    border-radius: var(--radius-sm);
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: var(--transition-base);
+    border: 2px solid transparent;
+    font-family: var(--font-primary);
+    gap: var(--space-xs);
+}
+
+.btn-primary {
+    background-color: var(--color-accent);
+    color: var(--color-white);
+}
+
+.btn-primary:hover {
+    background-color: #0055AA;
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+.btn-secondary {
+    background-color: transparent;
+    color: var(--color-primary);
+    border-color: var(--color-primary);
+}
+
+.btn-secondary:hover {
+    background-color: var(--color-light);
+    transform: translateY(-2px);
+}
+
+.btn-icon {
+    font-size: 1.1rem;
+}
+
+.btn-submit {
+    width: 100%;
+    margin-top: var(--space-sm);
+}
+
+.btn-contact {
+    padding: 0.5rem 1.5rem;
+    border-radius: var(--radius-sm);
+    background-color: var(--color-accent);
+    color: var(--color-white);
+    text-decoration: none;
+    font-weight: 500;
+    transition: var(--transition-base);
+}
+
+.btn-contact:hover {
+    background-color: #0055AA;
+}
+
+/* Tags et badges */
+.skill-tag, .project-tag {
+    display: inline-block;
+    padding: 0.25rem 0.75rem;
+    background-color: var(--color-light);
+    color: var(--color-secondary);
+    border-radius: 20px;
+    font-size: 0.875rem;
+    font-weight: 500;
+    margin-right: var(--space-xs);
+    margin-bottom: var(--space-xs);
+    border: 1px solid var(--color-border);
+}
+
+/* ==========================================================================
+   Layout principal
+   ========================================================================== */
+
+/* Header et Navigation */
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: var(--color-white);
+    z-index: 1000;
+    border-bottom: 1px solid var(--color-border);
+    padding: var(--space-sm) 0;
+}
+
+.nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: var(--color-primary);
+    font-weight: 600;
+    font-size: 1.25rem;
+    gap: var(--space-xs);
+}
+
+.logo img {
+    width: 32px;
+    height: 32px;
+    border-radius: var(--radius-sm);
+}
+
+.logo-text {
+    font-weight: 600;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    align-items: center;
+    gap: var(--space-lg);
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--color-secondary);
+    font-weight: 500;
+    font-size: 0.95rem;
+    transition: var(--transition-fast);
+    padding: 0.5rem 0;
+    position: relative;
+}
+
+.nav-links a:hover {
+    color: var(--color-accent);
+}
+
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--color-accent);
+    transition: var(--transition-base);
+}
+
+.nav-links a:hover::after {
+    width: 100%;
+}
+
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 24px;
+    height: 18px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+}
+
+.menu-toggle span {
+    display: block;
+    height: 2px;
+    width: 100%;
+    background-color: var(--color-primary);
+    transition: var(--transition-base);
+}
+
+/* Hero Section */
+.hero {
+    padding: calc(var(--space-xxl) + 4rem) 0 var(--space-xxl);
+    background-color: var(--color-white);
+}
+
+.hero-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-xl);
+    align-items: center;
+}
+
+.hero-text {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+}
+
+.hero-title {
+    font-size: clamp(1.75rem, 5vw, 3rem);
+    line-height: 1.1;
+    margin-bottom: var(--space-md);
+}
+
+.hero-subtitle {
+    font-size: 1.125rem;
+    color: var(--color-gray);
+    max-width: 500px;
+}
+
+.hero-cta {
+    display: flex;
+    gap: var(--space-md);
+    margin-top: var(--space-md);
+}
+
+.hero-image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hero-image img {
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-lg);
+    border: 1px solid var(--color-border);
+}
+
+/* About Section */
+.about {
+    padding: var(--space-xxl) 0;
+    background-color: var(--color-light);
+}
+
+.about-content {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: var(--space-xl);
+    margin-top: var(--space-xl);
+}
+
+.about-text {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+}
+
+.about-intro {
+    font-size: 1.25rem;
+    line-height: 1.4;
+}
+
+.about-differentiation {
+    padding: var(--space-md);
+    background-color: var(--color-white);
+    border-left: 4px solid var(--color-accent);
+    border-radius: var(--radius-sm);
+    margin-top: var(--space-md);
+}
+
+.about-differentiation h3 {
+    margin-bottom: var(--space-xs);
+}
+
+.about-target h3 {
+    margin-bottom: var(--space-md);
+}
+
+.target-list {
+    list-style: none;
+    margin-bottom: var(--space-lg);
+}
+
+.target-list li {
+    padding: var(--space-sm) 0;
+    border-bottom: 1px solid var(--color-border);
+    position: relative;
+    padding-left: var(--space-md);
+}
+
+.target-list li::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    color: var(--color-accent);
+}
+
+.about-education {
+    background-color: var(--color-white);
+    padding: var(--space-md);
+    border-radius: var(--radius-sm);
+    border: 1px solid var(--color-border);
+}
+
+/* Skills Section */
+.skills {
+    padding: var(--space-xxl) 0;
+    background-color: var(--color-white);
+}
+
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--space-xl);
+    margin-top: var(--space-xl);
+}
+
+.skill-category {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+}
+
+.skill-category h3 {
+    font-size: 1.5rem;
+    margin-bottom: var(--space-sm);
+    display: flex;
+    align-items: center;
+    gap: var(--space-xs);
+}
+
+.skill-icon {
+    font-size: 1.5rem;
+}
+
+.skill-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-lg);
+}
+
+.skill-list li {
+    padding-bottom: var(--space-md);
+    border-bottom: 1px solid var(--color-border);
+}
+
+.skill-list li:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+.skill-list strong {
+    display: block;
+    margin-bottom: var(--space-xs);
+    color: var(--color-primary);
+    font-size: 1.1rem;
+}
+
+.skill-list p {
+    font-size: 0.95rem;
+    color: var(--color-gray);
+    margin-bottom: var(--space-sm);
+}
+
+.skill-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-xs);
+}
+
+/* Projects Section */
+.projects {
+    padding: var(--space-xxl) 0;
+    background-color: var(--color-light);
+}
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: var(--space-xl);
+    margin-bottom: var(--space-xl);
+}
+
+.project-card {
+    background-color: var(--color-white);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+    transition: var(--transition-base);
+    border: 1px solid var(--color-border);
+}
+
+.project-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+}
+
+.project-image {
+    width: 100%;
+    height: 220px;
+    overflow: hidden;
+    background-color: var(--color-light);
+}
+
+.project-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: var(--transition-base);
+}
+
+.project-card:hover .project-image img {
+    transform: scale(1.02);
+}
+
+.project-content {
+    padding: var(--space-lg);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+}
+
+.project-content h3 {
+    font-size: 1.25rem;
+    margin-bottom: var(--space-xs);
+}
+
+.project-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-xs);
+    margin: var(--space-sm) 0;
+}
+
+.project-impact {
+    padding: var(--space-sm);
+    background-color: var(--color-light);
+    border-radius: var(--radius-sm);
+    border-left: 3px solid var(--color-accent);
+    font-size: 0.9rem;
+    margin-top: var(--space-sm);
+}
+
+.projects-note {
+    text-align: center;
+    padding: var(--space-lg);
+    background-color: var(--color-white);
+    border-radius: var(--radius-sm);
+    border: 1px solid var(--color-border);
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* Contact Section */
+.contact {
+    padding: var(--space-xxl) 0;
+    background-color: var(--color-white);
+}
+
+.contact-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--space-xl);
+    margin-top: var(--space-xl);
+}
+
+.contact-info {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-lg);
+}
+
+.availability-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+}
+
+.availability-list li {
+    padding: var(--space-sm);
+    background-color: var(--color-light);
+    border-radius: var(--radius-sm);
+    border-left: 3px solid var(--color-accent);
+}
+
+.contact-direct {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+}
+
+.contact-direct .btn {
+    justify-content: flex-start;
+    text-align: left;
+    padding: var(--space-sm) var(--space-md);
+}
+
+.contact-form-container {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xs);
+}
+
+.form-label {
+    font-weight: 500;
+    font-size: 0.9rem;
+    color: var(--color-secondary);
+}
+
+.form-input, .form-textarea {
+    padding: 0.875rem;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-sm);
+    font-family: var(--font-primary);
+    font-size: 1rem;
+    transition: var(--transition-fast);
+    background-color: var(--color-light);
+}
+
+.form-input:focus, .form-textarea:focus {
+    outline: none;
+    border-color: var(--color-accent);
+    background-color: var(--color-white);
+}
+
+.form-textarea {
+    min-height: 120px;
+    resize: vertical;
+}
+
+/* Footer */
+.footer {
+    padding: var(--space-xl) 0;
+    background-color: var(--color-primary);
+    color: var(--color-white);
+}
+
+.footer-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: var(--space-md);
+}
+
+.footer-logo {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+    margin-bottom: var(--space-sm);
+    color: var(--color-white);
+    text-decoration: none;
+}
+
+.footer-logo img {
+    width: 24px;
+    height: 24px;
+    border-radius: var(--radius-sm);
+}
+
+.footer-name {
+    font-weight: 600;
+    font-size: 1.25rem;
+}
+
+.footer-tagline {
+    color: var(--color-light-gray);
+    font-style: italic;
+    font-size: 0.95rem;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.footer-info {
+    color: var(--color-gray);
+    font-size: 0.9rem;
+    line-height: 1.4;
+}
+
+.footer-copyright {
+    color: var(--color-gray);
+    font-size: 0.85rem;
+    margin-top: var(--space-md);
+}
+
+/* ==========================================================================
+   Responsive Design - Mobile First
+   ========================================================================== */
+
+@media (max-width: 1024px) {
+    .hero-content {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: var(--space-lg);
+    }
+    
+    .hero-text {
+        order: 2;
+    }
+    
+    .hero-image {
+        order: 1;
+    }
+    
+    .hero-cta {
+        justify-content: center;
+    }
+    
+    .about-content {
+        grid-template-columns: 1fr;
+        gap: var(--space-lg);
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 0 var(--space-sm);
+    }
+    
+    .hero, .about, .skills, .projects, .contact {
+        padding: var(--space-xl) 0;
+    }
+    
+    .menu-toggle {
+        display: flex;
+    }
+    
+    .nav-links {
+        position: fixed;
+        top: 70px;
+        left: 0;
+        width: 100%;
+        background-color: var(--color-white);
+        flex-direction: column;
+        align-items: center;
+        padding: var(--space-lg);
+        box-shadow: var(--shadow-md);
+        transform: translateY(-100%);
+        opacity: 0;
+        visibility: hidden;
+        transition: var(--transition-base);
+        z-index: 999;
+        border-top: 1px solid var(--color-border);
+    }
+    
+    .nav-links.active {
+        transform: translateY(0);
+        opacity: 1;
+        visibility: visible;
+    }
+    
+    .nav-links li {
+        margin: var(--space-sm) 0;
+    }
+    
+    .btn-contact {
+        margin-left: 0;
+        margin-top: var(--space-sm);
+    }
+    
+    .hero-cta {
+        flex-direction: column;
+        align-items: stretch;
+        max-width: 300px;
+        margin: 0 auto;
+    }
+    
+    .projects-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .contact-content {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    :root {
+        --space-md: 1rem;
+        --space-lg: 1.5rem;
+        --space-xl: 2rem;
+    }
+    
+    h1 {
+        font-size: 1.75rem;
+    }
+    
+    h2 {
+        font-size: 1.5rem;
+    }
+    
+    .btn {
+        padding: 0.75rem 1.5rem;
+        font-size: 0.95rem;
+    }
+    
+    .skill-category, .project-card, .contact-form-container {
+        padding: var(--space-md);
+    }
+    
+    .logo-text {
+        font-size: 1rem;
+    }
+}
+
+/* ==========================================================================
+   Accessibilité et États
+   ========================================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+:focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 2px;
+}
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+/* États de chargement */
+.loading {
+    opacity: 0.7;
+    pointer-events: none;
+}
+
+/* Animation subtile pour les cartes */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.project-card, .skill-category {
+    animation: fadeInUp 0.5s ease-out;
+}
+
+.project-card:nth-child(2) {
+    animation-delay: 0.1s;
+}
