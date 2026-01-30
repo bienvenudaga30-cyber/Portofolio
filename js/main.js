@@ -238,20 +238,6 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     
     /**
-     * Préchargement des images critiques
-     */
-    function preloadCriticalImages() {
-        const criticalImages = [
-            'images/profile.jpg'
-        ];
-        
-        criticalImages.forEach(src => {
-            const img = new Image();
-            img.src = src;
-        });
-    }
-    
-    /**
      * Gestion du lazy loading des images
      */
     function initLazyLoading() {
@@ -304,7 +290,6 @@ document.addEventListener('DOMContentLoaded', function() {
         initScrollAnimations();
         initLazyLoading();
         detectFeatures();
-        preloadCriticalImages();
         
         console.log('Portfolio initialisé avec succès');
     }
