@@ -1,335 +1,144 @@
-/**
- * Portfolio Bienvenu DAGA - Script principal
- * Minimaliste, performant et accessible
- */
+// ============================================
+// NAVIGATION MENU TOGGLE
+// ============================================
+const hamburger = document.querySelector('.hamburger');
+const navMenu = document.querySelector('.nav-menu');
 
-document.addEventListener('DOMContentLoaded', function() {
-    
-    // ============================================
-    // Initialisation
-    // ============================================
-    
-    console.log('Portfolio Bienvenu DAGA - Chargé');
-    
-    // Éléments DOM
-    const menuToggle = document.querySelector('.menu-toggle');
-    const navLinks = document.querySelector('.nav-links');
-    const currentYear = document.getElementById('currentYear');
-    const contactForm = document.getElementById('contactForm');
-    
-    // ============================================
-    // Fonctions principales
-    // ============================================
-    
-    /**
-     * Gestion du menu mobile
-     */
-    function initMobileMenu() {
-        if (!menuToggle || !navLinks) return;
-        
-        menuToggle.addEventListener('click', function() {
-            const isExpanded = this.getAttribute('aria-expanded') === 'true';
-            
-            // Basculer l'état du menu
-            this.setAttribute('aria-expanded', !isExpanded);
-            navLinks.classList.toggle('active');
-            
-            // Animer les barres du hamburger
-            const spans = this.querySelectorAll('span');
-            if (!isExpanded) {
-                spans[0].style.transform = 'rotate(45deg) translate(6px, 6px)';
-                spans[1].style.opacity = '0';
-                spans[2].style.transform = 'rotate(-45deg) translate(6px, -6px)';
-            } else {
-                spans[0].style.transform = 'none';
-                spans[1].style.opacity = '1';
-                spans[2].style.transform = 'none';
-            }
-        });
-        
-        // Fermer le menu en cliquant sur un lien
-        document.querySelectorAll('.nav-links a').forEach(link => {
-            link.addEventListener('click', () => {
-                menuToggle.setAttribute('aria-expanded', 'false');
-                navLinks.classList.remove('active');
-                
-                // Réinitialiser l'animation du hamburger
-                const spans = menuToggle.querySelectorAll('span');
-                spans[0].style.transform = 'none';
-                spans[1].style.opacity = '1';
-                spans[2].style.transform = 'none';
-            });
-        });
-        
-        // Fermer le menu en cliquant à l'extérieur
-        document.addEventListener('click', (event) => {
-            if (!navLinks.contains(event.target) && !menuToggle.contains(event.target)) {
-                menuToggle.setAttribute('aria-expanded', 'false');
-                navLinks.classList.remove('active');
-                
-                const spans = menuToggle.querySelectorAll('span');
-                spans[0].style.transform = 'none';
-                spans[1].style.opacity = '1';
-                spans[2].style.transform = 'none';
-            }
-        });
-    }
-    
-    /**
-     * Mettre à jour l'année du copyright
-     */
-    function updateCopyrightYear() {
-        if (currentYear) {
-            currentYear.textContent = new Date().getFullYear();
-        }
-    }
-    
-    /**
-     * Gestion du formulaire de contact - Version corrigée
-     */
-    function initContactForm() {
-        const contactForm = document.getElementById('contactForm');
-        
-        if (!contactForm) return;
-        
-        contactForm.addEventListener('submit', async function(e) {
-            e.preventDefault();
-            
-            // Récupérer les valeurs du formulaire
-            const name = document.getElementById('name').value;
-            const email = document.getElementById('email').value;
-            const company = document.getElementById('company').value;
-            const message = document.getElementById('message').value;
-            
-            // Validation
-            if (!name || !email || !message) {
-                showFormMessage('Veuillez remplir tous les champs obligatoires.', 'error');
-                return;
-            }
-            
-            if (!isValidEmail(email)) {
-                showFormMessage('Veuillez entrer une adresse email valide.', 'error');
-                return;
-            }
-            
-            try {
-                // Afficher l'état de chargement
-                this.classList.add('loading');
-                
-                // Créer un lien mailto direct
-                const subject = `Message portfolio de ${name}`;
-                const body = `Nom: ${name}%0D%0AEmail: ${email}%0D%0AEntreprise: ${company || 'Non spécifié'}%0D%0A%0D%0AMessage:%0D%0A${message}`;
-                
-                // Ouvrir le client email avec les données pré-remplies
-                window.location.href = `mailto:bienvenudaga30@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-                
-                // Réinitialiser le formulaire après un court délai
-                setTimeout(() => {
-                    showFormMessage('Ouvrez votre client email pour envoyer le message. Le formulaire a été pré-rempli.', 'success');
-                    this.reset();
-                }, 1000);
-                
-            } catch (error) {
-                console.error('Erreur:', error);
-                // Solution de secours : lien mailto simple
-                const mailtoLink = `mailto:bienvenudaga30@gmail.com?subject=Message portfolio&body=Nom: ${encodeURIComponent(name)}%0D%0AEmail: ${encodeURIComponent(email)}%0D%0A${encodeURIComponent(message)}`;
-                showFormMessage(`Une erreur est survenue. <a href="${mailtoLink}" style="color: #0066CC; text-decoration: underline;">Cliquez ici pour m'envoyer un email directement</a>.`, 'error');
-            } finally {
-                this.classList.remove('loading');
-            }
-        });
-    }
-    
-    /**
-     * Valider un email
-     */
-    function isValidEmail(email) {
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        return emailRegex.test(email);
-    }
-    
-    /**
-     * Afficher un message pour le formulaire
-     */
-    function showFormMessage(message, type) {
-        const contactForm = document.getElementById('contactForm');
-        if (!contactForm) return;
-        
-        // Supprimer les messages existants
-        const existingMessage = contactForm.querySelector('.form-message');
-        if (existingMessage) {
-            existingMessage.remove();
-        }
-        
-        // Créer le nouveau message
-        const messageEl = document.createElement('div');
-        messageEl.className = `form-message form-message-${type}`;
-        messageEl.innerHTML = message;
-        messageEl.style.cssText = `
-            padding: 12px;
-            margin-top: 16px;
-            border-radius: 4px;
-            font-size: 0.9rem;
-            text-align: center;
-            background-color: ${type === 'success' ? '#d4edda' : '#f8d7da'};
-            color: ${type === 'success' ? '#155724' : '#721c24'};
-            border: 1px solid ${type === 'success' ? '#c3e6cb' : '#f5c6cb'};
-        `;
-        
-        // Ajouter avant le bouton d'envoi
-        const submitBtn = contactForm.querySelector('.btn-submit');
-        contactForm.insertBefore(messageEl, submitBtn);
-        
-        // Supprimer après 5 secondes
-        setTimeout(() => {
-            if (messageEl.parentNode) {
-                messageEl.remove();
-            }
-        }, 5000);
-    }
-    
-    /**
-     * Gestion des ancres smooth scroll
-     */
-    function initSmoothScroll() {
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                const href = this.getAttribute('href');
-                
-                // Ignorer les ancres vides
-                if (href === '#') return;
-                
-                const targetElement = document.querySelector(href);
-                
-                if (targetElement) {
-                    e.preventDefault();
-                    
-                    // Calculer la position avec offset pour le header fixe
-                    const headerHeight = document.querySelector('.header').offsetHeight;
-                    const targetPosition = targetElement.offsetTop - headerHeight;
-                    
-                    window.scrollTo({
-                        top: targetPosition,
-                        behavior: 'smooth'
-                    });
-                }
-            });
-        });
-    }
-    
-    /**
-     * Animation au scroll
-     */
-    function initScrollAnimations() {
-        const observerOptions = {
-            root: null,
-            rootMargin: '0px',
-            threshold: 0.1
-        };
-        
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('animate-visible');
-                    
-                    // Optionnel : arrêter d'observer après animation
-                    // observer.unobserve(entry.target);
-                }
-            });
-        }, observerOptions);
-        
-        // Observer les éléments à animer
-        document.querySelectorAll('.project-card, .skill-category').forEach(el => {
-            observer.observe(el);
-        });
-    }
-    
-    /**
-     * Gestion du lazy loading des images
-     */
-    function initLazyLoading() {
-        if ('IntersectionObserver' in window) {
-            const imageObserver = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        const img = entry.target;
-                        const src = img.getAttribute('data-src');
-                        
-                        if (src) {
-                            img.src = src;
-                            img.removeAttribute('data-src');
-                        }
-                        
-                        imageObserver.unobserve(img);
-                    }
-                });
-            });
-            
-            document.querySelectorAll('img[data-src]').forEach(img => {
-                imageObserver.observe(img);
-            });
-        }
-    }
-    
-    /**
-     * Détection des fonctionnalités
-     */
-    function detectFeatures() {
-        // Ajouter des classes pour les fonctionnalités supportées
-        if ('IntersectionObserver' in window) {
-            document.documentElement.classList.add('intersection-observer');
-        }
-        
-        if ('scrollBehavior' in document.documentElement.style) {
-            document.documentElement.classList.add('smooth-scroll');
-        }
-    }
-    
-    // ============================================
-    // Initialisation
-    // ============================================
-    
-    function init() {
-        initMobileMenu();
-        updateCopyrightYear();
-        initContactForm();
-        initSmoothScroll();
-        initScrollAnimations();
-        initLazyLoading();
-        detectFeatures();
-        
-        console.log('Portfolio initialisé avec succès');
-    }
-    
-    // Lancer l'initialisation
-    init();
-    
-    // ============================================
-    // Optimisations avancées
-    // ============================================
-    
-    // Gérer le resize avec debounce
-    let resizeTimeout;
-    window.addEventListener('resize', () => {
-        clearTimeout(resizeTimeout);
-        resizeTimeout = setTimeout(() => {
-            // Fermer le menu mobile sur resize
-            if (window.innerWidth > 768) {
-                menuToggle.setAttribute('aria-expanded', 'false');
-                navLinks.classList.remove('active');
-                
-                const spans = menuToggle.querySelectorAll('span');
-                spans[0].style.transform = 'none';
-                spans[1].style.opacity = '1';
-                spans[2].style.transform = 'none';
-            }
-        }, 250);
+hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('active');
+    navMenu.classList.toggle('active');
+});
+
+// Fermer le menu lorsqu'on clique sur un lien
+document.querySelectorAll('.nav-link').forEach(link => {
+    link.addEventListener('click', () => {
+        hamburger.classList.remove('active');
+        navMenu.classList.remove('active');
     });
+});
+
+// ============================================
+// BACK TO TOP BUTTON
+// ============================================
+const backToTopButton = document.getElementById('backToTop');
+
+window.addEventListener('scroll', () => {
+    if (window.pageYOffset > 300) {
+        backToTopButton.classList.add('visible');
+    } else {
+        backToTopButton.classList.remove('visible');
+    }
+});
+
+backToTopButton.addEventListener('click', () => {
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+    });
+});
+
+// ============================================
+// FORM SUBMISSION
+// ============================================
+const contactForm = document.getElementById('contactForm');
+
+contactForm.addEventListener('submit', (e) => {
+    e.preventDefault();
     
-    // Gérer la visibilité de la page
-    document.addEventListener('visibilitychange', () => {
-        if (document.visibilityState === 'visible') {
-            console.log('Portfolio visible');
+    // Récupération des valeurs du formulaire
+    const name = document.getElementById('name').value;
+    const email = document.getElementById('email').value;
+    const subject = document.getElementById('subject').value;
+    const message = document.getElementById('message').value;
+    
+    // Ici, normalement on enverrait les données à un serveur
+    // Pour l'instant, on simule l'envoi avec un message de succès
+    console.log('Formulaire soumis:', { name, email, subject, message });
+    
+    // Message de succès
+    alert(`Merci ${name} ! Votre message a été envoyé. Je vous répondrai dans les plus brefs délais.`);
+    
+    // Réinitialisation du formulaire
+    contactForm.reset();
+});
+
+// ============================================
+// ANIMATION AU SCROLL
+// ============================================
+const observerOptions = {
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px'
+};
+
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('animate-card');
         }
     });
+}, observerOptions);
+
+// Observer les cartes de compétences et projets
+document.querySelectorAll('.skill-category, .project-card, .contact-info, .contact-form').forEach(el => {
+    observer.observe(el);
+});
+
+// ============================================
+// ANIMATION DE TEXTE POUR LE HERO
+// ============================================
+const heroTitle = document.querySelector('.hero-title');
+const heroText = heroTitle.textContent;
+const words = heroText.split(' ');
+
+// Créer un nouveau titre avec des spans pour chaque mot
+heroTitle.innerHTML = words.map(word => {
+    if (word.includes('data') || word.includes('design')) {
+        return `<span class="highlight">${word}</span>`;
+    }
+    return word;
+}).join(' ');
+
+// ============================================
+// COMPTEUR POUR LES PROJETS (animation)
+// ============================================
+const projectNumbers = document.querySelectorAll('.project-number');
+
+projectNumbers.forEach(number => {
+    const targetValue = parseInt(number.textContent);
+    let currentValue = 0;
+    
+    const updateNumber = () => {
+        if (currentValue < targetValue) {
+            currentValue++;
+            number.textContent = currentValue.toString().padStart(2, '0');
+            setTimeout(updateNumber, 100);
+        }
+    };
+    
+    // Démarrer l'animation quand la section est visible
+    const projectObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                updateNumber();
+                projectObserver.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.5 });
+    
+    projectObserver.observe(number.closest('.project-card'));
+});
+
+// ============================================
+// CHANGEMENT DE COULEUR DU HEADER AU SCROLL
+// ============================================
+const header = document.querySelector('.header');
+
+window.addEventListener('scroll', () => {
+    if (window.scrollY > 50) {
+        header.style.backgroundColor = 'rgba(255, 255, 255, 0.98)';
+        header.style.boxShadow = '0 4px 6px -1px rgba(0, 0, 0, 0.1)';
+    } else {
+        header.style.backgroundColor = 'rgba(255, 255, 255, 0.95)';
+        header.style.boxShadow = '0 1px 3px rgba(0, 0, 0, 0.1)';
+    }
 });
