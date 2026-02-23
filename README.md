@@ -1,112 +1,52 @@
-# Portfolio — [Votre Nom]
+# Portfolio de Bienvenu DAGA — Data & Design
 
-> Data Analyst & Designer-Développeur · Sèmè City Institute of Technology
+Ceci est le code source de mon portfolio professionnel. Il a été conçu pour mettre en avant ma double compétence en **analyse de données** et en **design numérique**, avec un style sobre et crédible.
 
-Portfolio minimaliste, mobile-first, sans dépendance externe lourde.
+## Structure du projet
 
----
+- `index.html` : Structure principale du site.
+- `css/style.css` : Tous les styles (minimalistes, mobile-first).
+- `js/main.js` : Interactions légères (menu mobile, navigation active).
+- `images/` : Contient tous les médias.
+    - `logo.png` : Logo utilisé comme favicon.
+    - `profile.jpg` : Photo de profil.
+    - `projects/` : Dossier pour les visuels des projets.
 
-## 🗂 Arborescence
+## Personnalisation
 
-```
-portfolio/
-├── index.html              ← Page principale
-├── css/
-│   └── style.css           ← Tous les styles
-├── js/
-│   └── main.js             ← Interactions (menu, scroll, fade-in)
-├── images/
-│   ├── logo.png            ← Logo (utilisé comme favicon)
-│   ├── profile.jpg         ← Votre photo (section Hero)
-│   └── projects/
-│       ├── sakila.jpg      ← Image projet Sakila
-│       └── mimic.jpg       ← Image projet MIMIC-III
-└── README.md
-```
+1. **Images** : Remplacez les fichiers dans `images/` par vos propres visuels.
+2. **Liens** : Mettez à jour les liens des projets et les URLs de contact dans `index.html`.
+3. **Textes** : Adaptez les descriptions dans chaque section si nécessaire.
+4. **WhatsApp** : Le lien utilise le format international. Vérifiez le code pays.
 
----
+## Déploiement
 
-## 🎨 Design System
+### Option 1 : GitHub Pages
 
-| Élément       | Valeur                        |
-|---------------|-------------------------------|
-| Fond          | `#0A0A0A` (noir profond)      |
-| Texte         | `#F5F4F0` (blanc cassé)       |
-| Accent        | `#C8F04D` (citron électrique) |
-| Gris texte    | `#C0BDB5`                     |
-| Font display  | **Syne** (Google Fonts)       |
-| Font body     | **DM Sans** (Google Fonts)    |
+1. Créez un dépôt nommé `bienvenu-daga.github.io` (ou votre nom d'utilisateur).
+2. Poussez tous ces fichiers à la racine du dépôt.
+3. Activez GitHub Pages dans les paramètres du dépôt.
+4. Votre site sera accessible à l'adresse `https://bienvenu-daga.github.io`.
 
----
+### Option 2 : Netlify (glisser-déposer)
 
-## ✏️ Personnalisation rapide
+1. Allez sur [app.netlify.com](https://app.netlify.com).
+2. Glissez le dossier `portfolio/` dans la zone prévue à cet effet.
+3. Netlify génère automatiquement une URL (ex: `bienvenu-daga.netlify.app`).
 
-1. **Votre nom** : Remplacez toutes les occurrences de `[Votre Nom]` dans `index.html` et `css/style.css`
-2. **Email** : Remplacez `votre@email.com` dans les liens `mailto:`
-3. **Liens sociaux** : Mettez à jour les URLs LinkedIn et GitHub
-4. **Photo** : Placez votre photo dans `images/profile.jpg`
-5. **Logo** : Placez votre logo dans `images/logo.png`
-6. **Images projets** : Ajoutez `sakila.jpg` et `mimic.jpg` dans `images/projects/`
-7. **Disponibilité** : Modifiez le texte du badge dans la section Hero si besoin
-8. **Projet 3** : Remplacez la carte "Prochain projet" quand vous aurez un 3ème projet
-
----
-
-## 🚀 Déploiement
-
-### GitHub Pages (gratuit)
-
-```bash
-# 1. Initialiser un dépôt Git
-git init
-git add .
-git commit -m "Initial portfolio"
-
-# 2. Créer un repo GitHub nommé : votrenom.github.io
-# 3. Pousser le code
-git remote add origin https://github.com/votrenom/votrenom.github.io.git
-git branch -M main
-git push -u origin main
-
-# ✅ Accessible sur : https://votrenom.github.io
-```
-
-### Netlify (drag & drop)
-
-1. Allez sur [netlify.com](https://netlify.com) → **Add new site**
-2. Faites glisser le dossier `portfolio/` dans la zone de dépôt
-3. ✅ Le site est en ligne en 30 secondes avec une URL Netlify
-
-### Netlify via CLI
-
-```bash
-npm install -g netlify-cli
-netlify deploy --dir=. --prod
-```
-
----
-
-## 📋 Checklist avant mise en ligne
-
-- [ ] Remplacer `[Votre Nom]` partout
-- [ ] Ajouter `images/logo.png`
-- [ ] Ajouter `images/profile.jpg`
-- [ ] Ajouter `images/projects/sakila.jpg`
-- [ ] Ajouter `images/projects/mimic.jpg`
-- [ ] Mettre à jour email et liens sociaux
-- [ ] Tester sur mobile (Chrome DevTools)
-- [ ] Ajouter les URLs des projets dans les boutons "Voir le projet →"
-
----
-
-## 🛠 Technologies
+## Technologies utilisées
 
 - HTML5 sémantique
-- CSS3 (variables, Grid, Flexbox, animations)
-- JavaScript Vanilla ES6+
-- Google Fonts (Syne + DM Sans)
-- Aucun framework — zéro dépendance
+- CSS3 (Flexbox, Grid, variables CSS)
+- JavaScript vanilla (ES6)
+- Police : Inter (Google Fonts)
+- Aucune dépendance lourde
+
+## Contact
+
+- Email : [bienvenudaga30@gmail.com](mailto:bienvenudaga30@gmail.com)
+- WhatsApp : +229 01 42 54 80 62
 
 ---
 
-*Conçu & développé avec soin.*
+© 2025 Bienvenu DAGA — Tous droits réservés.
