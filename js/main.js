@@ -1,144 +1,58 @@
-// ============================================
-// NAVIGATION MENU TOGGLE
-// ============================================
-const hamburger = document.querySelector('.hamburger');
-const navMenu = document.querySelector('.nav-menu');
+// main.js - Interactions minimales
 
-hamburger.addEventListener('click', () => {
-    hamburger.classList.toggle('active');
-    navMenu.classList.toggle('active');
-});
+document.addEventListener('DOMContentLoaded', function() {
 
-// Fermer le menu lorsqu'on clique sur un lien
-document.querySelectorAll('.nav-link').forEach(link => {
-    link.addEventListener('click', () => {
-        hamburger.classList.remove('active');
-        navMenu.classList.remove('active');
-    });
-});
+    // 1. Menu mobile : toggle
+    const navToggle = document.querySelector('.nav-toggle');
+    const navMenu = document.querySelector('.nav-menu');
 
-// ============================================
-// BACK TO TOP BUTTON
-// ============================================
-const backToTopButton = document.getElementById('backToTop');
+    if (navToggle && navMenu) {
+        navToggle.addEventListener('click', function() {
+            navMenu.classList.toggle('active');
+        });
 
-window.addEventListener('scroll', () => {
-    if (window.pageYOffset > 300) {
-        backToTopButton.classList.add('visible');
-    } else {
-        backToTopButton.classList.remove('visible');
+        // Fermer le menu quand on clique sur un lien (mobile)
+        const navLinks = document.querySelectorAll('.nav-link');
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+            });
+        });
     }
-});
 
-backToTopButton.addEventListener('click', () => {
-    window.scrollTo({
-        top: 0,
-        behavior: 'smooth'
-    });
-});
+    // 2. Highlight du lien actif pendant le défilement (optionnel, pour le confort)
+    const sections = document.querySelectorAll('section[id]');
+    const navItems = document.querySelectorAll('.nav-link');
 
-// ============================================
-// FORM SUBMISSION
-// ============================================
-const contactForm = document.getElementById('contactForm');
+    function highlightNavigation() {
+        let scrollY = window.pageYOffset;
 
-contactForm.addEventListener('submit', (e) => {
-    e.preventDefault();
-    
-    // Récupération des valeurs du formulaire
-    const name = document.getElementById('name').value;
-    const email = document.getElementById('email').value;
-    const subject = document.getElementById('subject').value;
-    const message = document.getElementById('message').value;
-    
-    // Ici, normalement on enverrait les données à un serveur
-    // Pour l'instant, on simule l'envoi avec un message de succès
-    console.log('Formulaire soumis:', { name, email, subject, message });
-    
-    // Message de succès
-    alert(`Merci ${name} ! Votre message a été envoyé. Je vous répondrai dans les plus brefs délais.`);
-    
-    // Réinitialisation du formulaire
-    contactForm.reset();
-});
+        sections.forEach(section => {
+            const sectionHeight = section.offsetHeight;
+            const sectionTop = section.offsetTop - 100; // offset pour la hauteur du header
+            const sectionId = section.getAttribute('id');
 
-// ============================================
-// ANIMATION AU SCROLL
-// ============================================
-const observerOptions = {
-    threshold: 0.1,
-    rootMargin: '0px 0px -50px 0px'
-};
-
-const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.classList.add('animate-card');
-        }
-    });
-}, observerOptions);
-
-// Observer les cartes de compétences et projets
-document.querySelectorAll('.skill-category, .project-card, .contact-info, .contact-form').forEach(el => {
-    observer.observe(el);
-});
-
-// ============================================
-// ANIMATION DE TEXTE POUR LE HERO
-// ============================================
-const heroTitle = document.querySelector('.hero-title');
-const heroText = heroTitle.textContent;
-const words = heroText.split(' ');
-
-// Créer un nouveau titre avec des spans pour chaque mot
-heroTitle.innerHTML = words.map(word => {
-    if (word.includes('data') || word.includes('design')) {
-        return `<span class="highlight">${word}</span>`;
-    }
-    return word;
-}).join(' ');
-
-// ============================================
-// COMPTEUR POUR LES PROJETS (animation)
-// ============================================
-const projectNumbers = document.querySelectorAll('.project-number');
-
-projectNumbers.forEach(number => {
-    const targetValue = parseInt(number.textContent);
-    let currentValue = 0;
-    
-    const updateNumber = () => {
-        if (currentValue < targetValue) {
-            currentValue++;
-            number.textContent = currentValue.toString().padStart(2, '0');
-            setTimeout(updateNumber, 100);
-        }
-    };
-    
-    // Démarrer l'animation quand la section est visible
-    const projectObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                updateNumber();
-                projectObserver.unobserve(entry.target);
+            if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
+                navItems.forEach(item => {
+                    item.classList.remove('active');
+                    if (item.getAttribute('href') === '#' + sectionId) {
+                        item.classList.add('active');
+                    }
+                });
             }
         });
-    }, { threshold: 0.5 });
-    
-    projectObserver.observe(number.closest('.project-card'));
-});
-
-// ============================================
-// CHANGEMENT DE COULEUR DU HEADER AU SCROLL
-// ============================================
-const header = document.querySelector('.header');
-
-window.addEventListener('scroll', () => {
-    if (window.scrollY > 50) {
-        header.style.backgroundColor = 'rgba(255, 255, 255, 0.98)';
-        header.style.boxShadow = '0 4px 6px -1px rgba(0, 0, 0, 0.1)';
-    } else {
-        header.style.backgroundColor = 'rgba(255, 255, 255, 0.95)';
-        header.style.boxShadow = '0 1px 3px rgba(0, 0, 0, 0.1)';
     }
+
+    // Ajouter un style pour l'élément actif (optionnel)
+    const style = document.createElement('style');
+    style.innerHTML = `
+        .nav-link.active {
+            color: var(--accent);
+            border-bottom-color: var(--accent);
+        }
+    `;
+    document.head.appendChild(style);
+
+    window.addEventListener('scroll', highlightNavigation);
+    highlightNavigation(); // exécuter au chargement
 });
