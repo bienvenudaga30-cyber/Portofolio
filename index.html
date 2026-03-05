@@ -1,152 +1,268 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bienvenu DAGA · Data & Design</title>
-    <meta name="description" content="Portfolio de Bienvenu DAGA, étudiant en Digitalisation et Sciences de Données. Je construis des ponts entre la data et le design.">
-    <!-- Favicon (logo) -->
-    <link rel="icon" type="image/png" href="images/logo.png">
-    <link rel="apple-touch-icon" href="images/logo.png">
-    <!-- Polices professionnelles -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
-    <!-- Feuille de style -->
-    <link rel="stylesheet" href="css/style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Bienvenu DAGA — Data Scientist & Développeur Web. J'architecture le pont entre la data et le design pour des solutions intelligentes et impactantes." />
+  <meta name="author" content="Bienvenu DAGA" />
+  <meta property="og:title" content="Bienvenu DAGA — Data Scientist" />
+  <meta property="og:description" content="Data Scientist & Développeur Front-End | Sèmè City Institute" />
+  <meta property="og:type" content="website" />
+  <title>Bienvenu DAGA — Data Scientist</title>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="images/logo.png" />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
 
-    <!-- EN-TÊTE / NAVIGATION -->
-    <header class="site-header">
-        <div class="container">
-            <nav class="navbar">
-                <a href="#" class="logo">BD<span>#</span></a>
-                <ul class="nav-menu">
-                    <li><a href="#hero" class="nav-link">Accueil</a></li>
-                    <li><a href="#projets" class="nav-link">Projets</a></li>
-                    <li><a href="#competences" class="nav-link">Compétences</a></li>
-                    <li><a href="#contact" class="nav-link">Contact</a></li>
-                </ul>
-                <button class="nav-toggle" aria-label="menu">☰</button>
-            </nav>
+  <!-- ========== NAVIGATION ========== -->
+  <nav class="nav" id="nav">
+    <div class="nav__inner">
+      <a href="#hero" class="nav__logo">BD</a>
+      <ul class="nav__links">
+        <li><a href="#about">À propos</a></li>
+        <li><a href="#skills">Compétences</a></li>
+        <li><a href="#projects">Projets</a></li>
+        <li><a href="#contact" class="nav__cta">Me contacter</a></li>
+      </ul>
+      <button class="nav__burger" id="burger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" id="mobileMenu">
+    <ul>
+      <li><a href="#about" class="mobile-link">À propos</a></li>
+      <li><a href="#skills" class="mobile-link">Compétences</a></li>
+      <li><a href="#projects" class="mobile-link">Projets</a></li>
+      <li><a href="#contact" class="mobile-link">Me contacter</a></li>
+    </ul>
+  </div>
+
+  <!-- ========== HERO ========== -->
+  <section class="hero" id="hero">
+    <div class="hero__bg-lines" aria-hidden="true">
+      <div class="line"></div><div class="line"></div><div class="line"></div>
+    </div>
+    <div class="hero__content">
+      <span class="hero__tag">Étudiant @ Sèmè City Institute · Bénin</span>
+      <h1 class="hero__title">
+        Bienvenu <em>DAGA</em>
+      </h1>
+      <p class="hero__role">Data Scientist &amp; Développeur Web Front-End</p>
+      <p class="hero__desc">
+        J'architecture le pont entre la data et le design — combinant la rigueur analytique et l'agilité créative pour transformer des données brutes en décisions concrètes.
+      </p>
+      <div class="hero__actions">
+        <a href="#projects" class="btn btn--primary">Voir mes projets</a>
+        <a href="#contact" class="btn btn--ghost">Me contacter</a>
+      </div>
+    </div>
+    <div class="hero__photo">
+      <div class="hero__photo-frame">
+        <img src="images/profile.jpg" alt="Photo de Bienvenu DAGA" loading="eager" />
+      </div>
+      <div class="hero__photo-accent" aria-hidden="true"></div>
+    </div>
+  </section>
+
+  <!-- ========== ABOUT ========== -->
+  <section class="section about" id="about">
+    <div class="container">
+      <div class="about__grid">
+        <div class="about__text">
+          <span class="section__label">01 — À propos</span>
+          <h2 class="section__title">L'architecte data-design</h2>
+          <p>
+            Étudiant en <strong>Digitalisation et Sciences de Données</strong> au Sèmè City Institute of Technology and Innovation, je construis des ponts entre les besoins métier concrets et le monde technique.
+          </p>
+          <p>
+            Ma différence ? Je ne me contente pas d'analyser. J'utilise la data pour <strong>modéliser, prédire et recommander</strong> — puis je donne une forme persuasive et visuelle à ces insights pour qu'ils génèrent un impact réel.
+          </p>
+          <p>
+            Je combine la rigueur d'un data scientist et l'agilité créative d'un designer-développeur. Le résultat : des solutions à la fois intelligentes, esthétiques et opérationnelles.
+          </p>
         </div>
-    </header>
-
-    <main>
-
-        <!-- SECTION HERO -->
-        <section id="hero" class="hero">
-            <div class="container hero-grid">
-                <div class="hero-content">
-                    <h1>Bienvenu DAGA</h1>
-                    <p class="hero-subtitle">Étudiant en Digitalisation & Sciences de Données à Sèmè City.</p>
-                    <p class="hero-description">
-                        Je construis des ponts entre les besoins métier et le monde technique, en utilisant la data pour modéliser, prédire et recommander des actions.
-                    </p>
-                    <div class="hero-cta">
-                        <a href="#projets" class="btn btn-primary">Voir mes projets</a>
-                        <a href="#contact" class="btn btn-outline">Me contacter</a>
-                    </div>
-                </div>
-                <div class="hero-image">
-                    <img src="images/profile.jpg" alt="Bienvenu DAGA - Portrait">
-                </div>
-            </div>
-        </section>
-
-        <!-- SECTION PROJETS -->
-        <section id="projets" class="projets">
-            <div class="container">
-                <h2 class="section-title">Projets concrets</h2>
-                <div class="projets-grid">
-
-                    <!-- Projet 1 : Sakila -->
-                    <article class="projet-card">
-                        <div class="projet-image">
-                            <img src="images/projects/sakila.jpg" alt="Dashboard d'analyse de la base de données Sakila">
-                        </div>
-                        <div class="projet-content">
-                            <h3>Analyse des tendances client (Sakila)</h3>
-                            <p>J’ai interrogé et nettoyé cette base de données de location de films pour révéler les préférences des clients, les pics d’activité et les performances des films. Mes dashboards clairs permettent de prendre des décisions commerciales en un coup d’œil.</p>
-                            <div class="projet-tags">
-                                <span>SQL</span>
-                                <span>Python</span>
-                                <span>Tableau</span>
-                            </div>
-                            <a href="#" class="btn-link">Explorer le projet →</a>
-                        </div>
-                    </article>
-
-                    <!-- Projet 2 : MIMIC-III -->
-                    <article class="projet-card">
-                        <div class="projet-image">
-                            <img src="images/projects/mimic.jpg" alt="Visualisation de données de soins intensifs">
-                        </div>
-                        <div class="projet-content">
-                            <h3>Exploration de données de soins intensifs (MIMIC-III)</h3>
-                            <p>Sur un échantillon de cette base médicale complexe, j’ai réalisé une analyse exploratoire pour identifier des indicateurs clés de santé. J’ai créé des visualisations qui synthétisent des informations médicales denses.</p>
-                            <div class="projet-tags">
-                                <span>Python</span>
-                                <span>Pandas</span>
-                                <span>Matplotlib</span>
-                            </div>
-                            <a href="#" class="btn-link">Explorer le projet →</a>
-                        </div>
-                    </article>
-                </div>
-            </div>
-        </section>
-
-        <!-- SECTION COMPÉTENCES (PILIERS) -->
-        <section id="competences" class="competences">
-            <div class="container">
-                <h2 class="section-title">Deux piliers, une approche</h2>
-                <div class="competences-grid">
-                    <div class="competence-card">
-                        <h3>🛠️ PILIER TECHNIQUE & ANALYTIQUE</h3>
-                        <p><strong>Data Analysis & Visualisation :</strong> Nettoyage, analyse et interprétation de données (SQL, Python, R) avec création de dashboards clairs.</p>
-                        <p><strong>Développement Web Front-End :</strong> Conception et réalisation de sites web modernes, responsives et performants (HTML, CSS, JavaScript).</p>
-                    </div>
-                    <div class="competence-card">
-                        <h3>🎨 PILIER CRÉATIF & DESIGN</h3>
-                        <p><strong>Design Graphique & Identité Visuelle :</strong> Création d'identités cohérentes (logos, cartes de visite, supports print) et de contenus visuels engageants (affiches, vidéos).</p>
-                        <p><strong>Design UI/UX & Production Digitale :</strong> Conception d'interfaces utilisateur intuitives et production de vidéos motion design pour le web et les réseaux sociaux.</p>
-                    </div>
-                </div>
-                <div class="differentiation">
-                    <p>“ L’architecte du pont entre la data et le design. Je combine la rigueur analytique d'un data scientist et l'agilité créative d'un designer-développeur pour créer des solutions à la fois intelligentes et esthétiquement impactantes.”</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- SECTION CONTACT -->
-        <section id="contact" class="contact">
-            <div class="container contact-grid">
-                <div class="contact-info">
-                    <h2 class="section-title">Discutons de votre projet</h2>
-                    <p>Je suis actuellement à la recherche d'un stage ou d'une première opportunité professionnelle stimulante dans un environnement tech/innovation qui valorise la double compétence data & design.</p>
-                    <ul class="contact-details">
-                        <li><span class="contact-label">Email</span> <a href="mailto:bienvenudaga30@gmail.com">bienvenudaga30@gmail.com</a></li>
-                        <li><span class="contact-label">WhatsApp</span> <a href="https://wa.me/2290142548062">01 42 54 80 62</a></li>
-                    </ul>
-                </div>
-                <div class="contact-cta">
-                    <p>Prêt à construire un pont entre vos idées et la donnée ?</p>
-                    <a href="mailto:bienvenudaga30@gmail.com" class="btn btn-primary">Envoyer un message</a>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <!-- PIED DE PAGE -->
-    <footer class="site-footer">
-        <div class="container">
-            <p>© 2025 Bienvenu DAGA — Conçu avec clarté et détermination.</p>
+        <div class="about__stats">
+          <div class="stat-card">
+            <span class="stat-card__num">2</span>
+            <span class="stat-card__label">Projets data livrés</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-card__num">4</span>
+            <span class="stat-card__label">Domaines de compétence</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-card__num">∞</span>
+            <span class="stat-card__label">Curiosité intellectuelle</span>
+          </div>
         </div>
-    </footer>
+      </div>
+    </div>
+  </section>
 
-    <!-- Script JS -->
-    <script src="js/main.js"></script>
+  <!-- ========== SKILLS ========== -->
+  <section class="section skills" id="skills">
+    <div class="container">
+      <span class="section__label">02 — Compétences</span>
+      <h2 class="section__title">Double expertise, un seul objectif</h2>
+      <div class="skills__grid">
+
+        <div class="skill-block">
+          <div class="skill-block__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 3h18v18H3zM9 9h6M9 12h6M9 15h4"/></svg>
+          </div>
+          <h3>Data Analysis &amp; Visualisation</h3>
+          <p>Nettoyage, analyse et interprétation de données complexes. Dashboards clairs pour prendre des décisions en un coup d'œil.</p>
+          <div class="skill-tags">
+            <span>SQL</span><span>Python</span><span>R</span><span>Dashboards</span>
+          </div>
+        </div>
+
+        <div class="skill-block">
+          <div class="skill-block__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+          </div>
+          <h3>Développement Web Front-End</h3>
+          <p>Conception et réalisation de sites web modernes, responsives et performants, orientés utilisateur.</p>
+          <div class="skill-tags">
+            <span>HTML</span><span>CSS</span><span>JavaScript</span><span>Mobile-first</span>
+          </div>
+        </div>
+
+        <div class="skill-block">
+          <div class="skill-block__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M4.22 4.22l2.12 2.12M17.66 17.66l2.12 2.12M2 12h3M19 12h3M4.22 19.78l2.12-2.12M17.66 6.34l2.12-2.12"/></svg>
+          </div>
+          <h3>Design Graphique &amp; Identité Visuelle</h3>
+          <p>Création d'identités cohérentes et de contenus visuels engageants — logos, supports print, affiches, vidéos publicitaires.</p>
+          <div class="skill-tags">
+            <span>Branding</span><span>Print</span><span>Motion</span>
+          </div>
+        </div>
+
+        <div class="skill-block">
+          <div class="skill-block__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+          </div>
+          <h3>Design UI/UX &amp; Production Digitale</h3>
+          <p>Conception d'interfaces utilisateur intuitives et production de vidéos motion design pour le web et les réseaux sociaux.</p>
+          <div class="skill-tags">
+            <span>UI/UX</span><span>Figma</span><span>Motion Design</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== PROJECTS ========== -->
+  <section class="section projects" id="projects">
+    <div class="container">
+      <span class="section__label">03 — Projets</span>
+      <h2 class="section__title">Travaux concrets</h2>
+      <div class="projects__grid">
+
+        <!-- Projet 1 -->
+        <article class="project-card">
+          <div class="project-card__img">
+            <img src="images/projects/project1.jpg" alt="Analyse mortalité ICU - MIMIC-III" loading="lazy" onerror="this.parentElement.classList.add('no-img')" />
+            <div class="project-card__overlay">
+              <span class="project-card__tag">Data Science · Santé</span>
+            </div>
+          </div>
+          <div class="project-card__body">
+            <h3>Analyse de la Mortalité &amp; Durée en ICU</h3>
+            <p>
+              Sur un échantillon de la base <strong>MIMIC-III</strong>, j'ai réalisé une analyse exploratoire pour identifier des indicateurs clés de santé en soins intensifs. Des visualisations synthétisent des informations médicales denses en insights actionnables.
+            </p>
+            <ul class="project-card__stack">
+              <li>Python</li><li>Pandas</li><li>Matplotlib</li><li>MIMIC-III</li>
+            </ul>
+          </div>
+        </article>
+
+        <!-- Projet 2 -->
+        <article class="project-card">
+          <div class="project-card__img">
+            <img src="images/projects/project2.jpg" alt="Analyse tendances commerciales Sakila" loading="lazy" onerror="this.parentElement.classList.add('no-img')" />
+            <div class="project-card__overlay">
+              <span class="project-card__tag">Data Analysis · Business</span>
+            </div>
+          </div>
+          <div class="project-card__body">
+            <h3>Analyse des Tendances Commerciales (Sakila)</h3>
+            <p>
+              Interrogation et nettoyage de la base <strong>Sakila</strong> pour révéler les préférences clients, les pics d'activité et les performances des films. Des dashboards clairs permettent de prendre des décisions commerciales en un coup d'œil.
+            </p>
+            <ul class="project-card__stack">
+              <li>SQL</li><li>Python</li><li>R</li><li>Dashboard</li>
+            </ul>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== CONTACT ========== -->
+  <section class="section contact" id="contact">
+    <div class="container">
+      <span class="section__label">04 — Contact</span>
+      <h2 class="section__title">Travaillons ensemble</h2>
+      <p class="contact__sub">
+        Vous avez un projet data, un besoin de visualisation ou cherchez un profil hybride data &amp; design ? Je suis disponible pour des opportunités de stage, freelance ou collaboration académique.
+      </p>
+      <div class="contact__links">
+        <a href="mailto:bienvenudaga30@gmail.com" class="contact__item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 7L2 7"/></svg>
+          bienvenudaga30@gmail.com
+        </a>
+        <a href="https://www.linkedin.com/in/kossoba-destin-bienvenu-daga-4496b8396" target="_blank" rel="noopener noreferrer" class="contact__item">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2zm2-5a2 2 0 110 4 2 2 0 010-4z"/></svg>
+          LinkedIn — Bienvenu DAGA
+        </a>
+        <a href="https://github.com/bienvenudaga30-cyber" target="_blank" rel="noopener noreferrer" class="contact__item">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.477 2 12c0 4.418 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.009-.868-.013-1.703-2.782.605-3.369-1.342-3.369-1.342-.454-1.154-1.11-1.462-1.11-1.462-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844a9.59 9.59 0 012.504.337c1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12c0-5.523-4.477-10-10-10z"/></svg>
+          GitHub — bienvenudaga30-cyber
+        </a>
+      </div>
+      <a href="mailto:bienvenudaga30@gmail.com" class="btn btn--primary contact__btn">
+        Envoyer un message →
+      </a>
+    </div>
+  </section>
+
+  <!-- ========== FOOTER ========== -->
+  <footer class="footer">
+    <div class="container footer__inner">
+      <span class="footer__name">Bienvenu DAGA</span>
+      <span class="footer__copy">© 2025 · Fait avec rigueur &amp; créativité</span>
+      <div class="footer__socials">
+        <a href="mailto:bienvenudaga30@gmail.com" aria-label="Email">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 7L2 7"/></svg>
+        </a>
+        <a href="https://www.linkedin.com/in/kossoba-destin-bienvenu-daga-4496b8396" target="_blank" rel="noopener" aria-label="LinkedIn">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2zm2-5a2 2 0 110 4 2 2 0 010-4z"/></svg>
+        </a>
+        <a href="https://github.com/bienvenudaga30-cyber" target="_blank" rel="noopener" aria-label="GitHub">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.477 2 12c0 4.418 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.009-.868-.013-1.703-2.782.605-3.369-1.342-3.369-1.342-.454-1.154-1.11-1.462-1.11-1.462-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844a9.59 9.59 0 012.504.337c1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12c0-5.523-4.477-10-10-10z"/></svg>
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- JS -->
+  <script src="js/main.js"></script>
 </body>
 </html>
