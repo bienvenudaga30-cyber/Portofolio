@@ -3,14 +3,24 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<meta name="description" content="Bienvenu DAGA — Data Scientist & Développeur Web. Digitalisation & Sciences de Données, Sèmè City Institute, Bénin."/>
+<!-- Open Graph — aperçu LinkedIn, WhatsApp, Facebook -->
+<meta property="og:title" content="Bienvenu DAGA — Data Scientist & Développeur Web"/>
+<meta property="og:description" content="Étudiant en Digitalisation & Data Science au Sèmè City Institute. Data · Design · Build — Cotonou, Bénin."/>
+<meta property="og:image" content="https://bienvenudaga.vercel.app.com/images/profile.jpg"/>
+<meta property="og:url" content="https://bienvenudaga.vercel.app.com"/>
+<meta property="og:type" content="website"/>
+<meta property="og:locale" content="fr_FR"/>
+<!-- Twitter/X Card (fonctionne aussi sur WhatsApp) -->
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:title" content="Bienvenu DAGA — Data Scientist & Développeur Web"/>
+<meta name="twitter:description" content="Étudiant en Digitalisation & Data Science au Sèmè City Institute. Data · Design · Build — Cotonou, Bénin."/>
+<meta name="twitter:image" content="https://bienvenudaga.vercel.app.com/images/profile.jpg"/>
+  
+  <meta name="description" content="Bienvenu DAGA — Data Scientist & Développeur Web. Digitalisation & Sciences de Données, Sèmè City Institute, Bénin."/>
 <title>Bienvenu DAGA — Data Scientist</title>
 <link rel="icon" type="image/png" href="images/logo.png"/>
 <script>
-  // 1. Bloquer clic droit
   document.addEventListener('contextmenu', e => e.preventDefault());
-
-  // 2. Bloquer raccourcis clavier (Ctrl+U, Ctrl+S, Ctrl+A, Ctrl+Shift+I/J/C, F12)
   document.addEventListener('keydown', e => {
     if (
       (e.ctrlKey && ['u','s','a'].includes(e.key.toLowerCase())) ||
@@ -18,21 +28,11 @@
       e.key === 'F12'
     ) { e.preventDefault(); e.stopPropagation(); return false; }
   });
-
-  // 3. Bloquer view-source: — si la page est chargée dans ce contexte, on redirige
-  // (fonctionne si le navigateur exécute JS avant de rendre view-source — limité)
-  try {
-    if (window.location.protocol === 'view-source:') {
-      window.location.replace('about:blank');
-    }
-  } catch(e) {}
-
-  // 4. Détecter les DevTools ouverts par mesure du temps de console.log
+  try { if (window.location.protocol === 'view-source:') window.location.replace('about:blank'); } catch(e) {}
   (function detectDevTools() {
     const threshold = 160;
     setInterval(() => {
       const start = performance.now();
-      // eslint-disable-next-line no-debugger
       debugger;
       if (performance.now() - start > threshold) {
         document.body.innerHTML = '<div style="display:flex;align-items:center;justify-content:center;height:100vh;font-family:sans-serif;color:#b8962e;font-size:1.2rem;">⛔ Accès non autorisé.</div>';
@@ -45,93 +45,131 @@
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Inter:wght@300;400;500&display=swap" rel="stylesheet"/>
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+
+/* ===== THÈME : CRÈME (défaut) ===== */
 :root{
   --cream:#f5f0eb;--cream2:#ede8e0;--white:#faf7f4;
   --dark:#1a1612;--dark2:#2c2520;--mid:#6b6258;--light:#9e948a;
   --border:#ddd5c8;--border2:#e8e0d5;
   --gold:#b8962e;
+  --nav-bg:rgba(26,22,18,.97);--nav-color:#e8e0d5;--nav-link:#9e8e7e;
+  --footer-bg:#1a1612;--ticker-bg:#1a1612;
   --fs:'Cormorant Garamond',Georgia,serif;
   --fb:'Inter',system-ui,sans-serif;
 }
-body.dark{
+/* ===== THÈME : NUIT ===== */
+body.t-nuit{
   --cream:#0f0e0c;--cream2:#161410;--white:#111009;
   --dark:#e8e0d5;--dark2:#d4c9bc;--mid:#9e8e7e;--light:#6b5e4e;
-  --border:#2c2520;--border2:#231e1a;
+  --border:#2c2520;--border2:#231e1a;--gold:#c9a84c;
+  --nav-bg:rgba(6,5,4,.98);--nav-color:#d4c9bc;--nav-link:#7a6e64;
+  --footer-bg:#0a0908;--ticker-bg:#0a0908;
 }
+/* ===== THÈME : OCÉAN ===== */
+body.t-ocean{
+  --cream:#eaf3f8;--cream2:#d8eaf3;--white:#f4fafd;
+  --dark:#0d2233;--dark2:#163347;--mid:#3d6b8a;--light:#6e9ab5;
+  --border:#b0d0e4;--border2:#c8dff0;--gold:#1a7fbf;
+  --nav-bg:rgba(10,30,50,.97);--nav-color:#cde5f5;--nav-link:#6e9ab5;
+  --footer-bg:#0a1e30;--ticker-bg:#0a1e30;
+}
+/* ===== THÈME : FORÊT ===== */
+body.t-foret{
+  --cream:#edf4ec;--cream2:#dceeda;--white:#f5faf4;
+  --dark:#142410;--dark2:#213d1a;--mid:#4a7a42;--light:#7aab70;
+  --border:#b0d4ac;--border2:#c8e4c4;--gold:#2e8b28;
+  --nav-bg:rgba(12,26,10,.97);--nav-color:#c8e4c4;--nav-link:#7aab70;
+  --footer-bg:#0c1a0a;--ticker-bg:#0c1a0a;
+}
+/* ===== THÈME : BRAISE ===== */
+body.t-braise{
+  --cream:#fdf0ec;--cream2:#f7e0d8;--white:#fffaf8;
+  --dark:#2a0a06;--dark2:#3d140e;--mid:#8a4035;--light:#b5776d;
+  --border:#e4b8b0;--border2:#f0cdc8;--gold:#c0392b;
+  --nav-bg:rgba(30,8,6,.97);--nav-color:#f0cdc8;--nav-link:#b5776d;
+  --footer-bg:#1e0806;--ticker-bg:#1e0806;
+}
+/* ===== THÈME : VIOLET ===== */
+body.t-violet{
+  --cream:#f0edf8;--cream2:#e3ddf4;--white:#f8f6fc;
+  --dark:#1a0d2e;--dark2:#2d1a4a;--mid:#6b4fa0;--light:#9b7ec8;
+  --border:#c8b8e8;--border2:#ddd0f4;--gold:#7c3aed;
+  --nav-bg:rgba(14,6,26,.97);--nav-color:#ddd0f4;--nav-link:#9b7ec8;
+  --footer-bg:#0e061a;--ticker-bg:#0e061a;
+}
+
 html{scroll-behavior:smooth}
-body{background:var(--cream);color:var(--dark);font-family:var(--fb);font-weight:300;line-height:1.6;overflow-x:hidden;cursor:none;transition:background .4s,color .4s}
+body{background:var(--cream);color:var(--dark);font-family:var(--fb);font-weight:300;line-height:1.6;overflow-x:hidden;cursor:none;transition:background .45s,color .45s}
 img{max-width:100%;display:block}a{color:inherit;text-decoration:none}ul{list-style:none}
 ::selection{background:rgba(184,150,46,.2)}
 ::-webkit-scrollbar{width:3px}::-webkit-scrollbar-track{background:var(--cream)}::-webkit-scrollbar-thumb{background:var(--gold);border-radius:2px}
 
-.cur{position:fixed;width:8px;height:8px;background:var(--gold);border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%)}
-.cur-ring{position:fixed;width:32px;height:32px;border:1px solid var(--gold);border-radius:50%;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);transition:all .15s;opacity:.5}
+.cur{position:fixed;width:8px;height:8px;background:var(--gold);border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);transition:background .4s}
+.cur-ring{position:fixed;width:32px;height:32px;border:1px solid var(--gold);border-radius:50%;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);transition:all .15s,border-color .4s;opacity:.5}
 .pbar{position:fixed;right:0;top:0;bottom:0;width:3px;background:rgba(184,150,46,.1);z-index:400}
-.pfill{width:100%;background:var(--gold);transform-origin:top;transform:scaleY(0);transition:transform .1s}
+.pfill{width:100%;background:var(--gold);transform-origin:top;transform:scaleY(0);transition:transform .1s,background .4s}
 
-nav{position:fixed;top:0;left:0;right:0;z-index:500;background:rgba(26,22,18,.97);padding:0 5%;height:52px;display:flex;align-items:center;justify-content:space-between}
-.nav-logo{font-family:var(--fb);font-size:.75rem;font-weight:400;letter-spacing:.12em;text-transform:uppercase;color:#e8e0d5}
-.nav-logo span{color:var(--gold);font-style:italic;font-family:var(--fs);font-size:.95rem}
+nav{position:fixed;top:0;left:0;right:0;z-index:500;background:var(--nav-bg);padding:0 5%;height:52px;display:flex;align-items:center;justify-content:space-between;transition:background .4s}
+.nav-logo{font-family:var(--fb);font-size:.75rem;font-weight:400;letter-spacing:.12em;text-transform:uppercase;color:var(--nav-color);transition:color .4s}
+.nav-logo span{color:var(--gold);font-style:italic;font-family:var(--fs);font-size:.95rem;transition:color .4s}
 .nav-links{display:flex;gap:2rem;align-items:center}
-.nav-links a{font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:#9e8e7e;transition:color .2s}
+.nav-links a{font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:var(--nav-link);transition:color .2s}
 .nav-links a:hover{color:var(--gold)}
-.nav-r{display:flex;align-items:center;gap:1rem}
-#langBtn{font-size:.68rem;letter-spacing:.1em;color:#9e8e7e;padding:.25rem .65rem;border:1px solid #3a3228;border-radius:2px;cursor:pointer;background:none;font-family:var(--fb);transition:all .25s;min-width:36px;text-align:center}
-#langBtn:hover{border-color:var(--gold);color:var(--gold)}
-#moonBtn{color:#9e8e7e;font-size:1.1rem;cursor:pointer;transition:color .25s;background:none;border:none;padding:.1rem .3rem;line-height:1}
-#moonBtn:hover{color:var(--gold)}
+.nav-r{display:flex;align-items:center;gap:.55rem}
+.nav-btn{font-size:.64rem;letter-spacing:.09em;color:var(--nav-link);padding:.22rem .6rem;border:1px solid rgba(255,255,255,.1);border-radius:2px;cursor:pointer;background:none;font-family:var(--fb);transition:all .25s;white-space:nowrap;line-height:1.6}
+.nav-btn:hover{border-color:var(--gold);color:var(--gold)}
+.theme-dot{display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--gold);margin-left:.3rem;vertical-align:middle;transition:background .4s;flex-shrink:0}
 .burger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:.3rem}
-.burger span{display:block;width:20px;height:1px;background:#e8e0d5;transition:.3s}
-@media(max-width:900px){.nav-links{display:none}.burger{display:flex}}
+.burger span{display:block;width:20px;height:1px;background:var(--nav-color);transition:.3s,background .4s}
+@media(max-width:960px){.nav-links{display:none}.burger{display:flex}}
 
-.mmenu{position:fixed;inset:0;background:rgba(26,22,18,.98);z-index:499;display:flex;align-items:center;justify-content:center;transform:translateX(100%);transition:transform .4s cubic-bezier(.77,0,.18,1)}
+.mmenu{position:fixed;inset:0;background:var(--nav-bg);z-index:499;display:flex;align-items:center;justify-content:center;transform:translateX(100%);transition:transform .4s cubic-bezier(.77,0,.18,1),background .4s}
 .mmenu.open{transform:translateX(0)}
 .mmenu ul{text-align:center;display:flex;flex-direction:column;gap:2.5rem}
-.mmenu a{font-family:var(--fs);font-size:2.5rem;font-weight:300;color:#e8e0d5;letter-spacing:.06em;transition:color .2s}
+.mmenu a{font-family:var(--fs);font-size:2.5rem;font-weight:300;color:var(--nav-color);letter-spacing:.06em;transition:color .2s}
 .mmenu a:hover{color:var(--gold)}
 
-.hero{min-height:100svh;display:grid;grid-template-columns:1fr 1fr;align-items:center;padding:52px 10% 0;background:var(--white);position:relative;overflow:hidden;transition:background .4s}
-.hero::after{content:'';position:absolute;right:0;top:0;bottom:0;width:52%;background:var(--cream2);z-index:0;transition:background .4s}
+.hero{min-height:100svh;display:grid;grid-template-columns:1fr 1fr;align-items:center;padding:52px 10% 0;background:var(--white);position:relative;overflow:hidden;transition:background .45s}
+.hero::after{content:'';position:absolute;right:0;top:0;bottom:0;width:52%;background:var(--cream2);z-index:0;transition:background .45s}
 .hero-l{position:relative;z-index:1;padding-right:4rem}
 .htag{display:flex;align-items:center;gap:.8rem;font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;color:var(--mid);margin-bottom:2.5rem}
 .htag::before{content:'——';color:var(--gold);letter-spacing:-.1em}
 .hh1{font-family:var(--fs);font-size:clamp(3.5rem,6vw,5.5rem);font-weight:300;line-height:1.05;margin-bottom:1.5rem;color:var(--dark)}
-.hh1 span{display:block;color:var(--gold);font-style:italic;font-weight:400;font-size:clamp(4rem,7vw,6.5rem)}
+.hh1 span{display:block;color:var(--gold);font-style:italic;font-weight:400;font-size:clamp(4rem,7vw,6.5rem);transition:color .4s}
 .hquote{font-family:var(--fs);font-size:1.15rem;font-style:italic;color:var(--mid);max-width:420px;line-height:1.6;margin-bottom:2rem}
 .chips{display:flex;flex-wrap:wrap;gap:.5rem;margin-bottom:2.5rem}
 .chip{font-size:.65rem;letter-spacing:.1em;text-transform:uppercase;border:1px solid var(--border);color:var(--mid);padding:.35rem .9rem;border-radius:2px;transition:all .2s}
 .chip:hover{border-color:var(--gold);color:var(--gold)}
 .hbtns{display:flex;gap:1rem;flex-wrap:wrap}
-.btn-f{background:var(--gold);color:#fff;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;padding:.9rem 2rem;border:none;cursor:pointer;transition:background .2s,transform .2s;font-family:var(--fb);display:inline-block}
-.btn-f:hover{background:#9a7d25;transform:translateY(-1px)}
+.btn-f{background:var(--gold);color:#fff;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;padding:.9rem 2rem;border:none;cursor:pointer;transition:opacity .2s,transform .2s,background .4s;font-family:var(--fb);display:inline-block}
+.btn-f:hover{opacity:.85;transform:translateY(-1px)}
 .btn-o{background:transparent;color:var(--dark2);font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;padding:.9rem 2rem;border:1px solid var(--border2);cursor:pointer;transition:all .2s;font-family:var(--fb);display:inline-block}
 .btn-o:hover{border-color:var(--dark)}
 .hero-r{position:relative;z-index:1;height:100%;display:flex;align-items:center;justify-content:center;padding:6rem 0 4rem 3rem}
 .photo-w{position:relative}
-.photo-frame{width:260px;height:360px;border:1px solid var(--gold);position:absolute;top:-12px;left:12px;pointer-events:none;z-index:0}
+.photo-frame{width:260px;height:360px;border:1px solid var(--gold);position:absolute;top:-12px;left:12px;pointer-events:none;z-index:0;transition:border-color .4s}
 .photo-inner{width:260px;height:360px;overflow:hidden;position:relative;z-index:1;background:var(--cream2);display:flex;align-items:center;justify-content:center;transition:background .4s}
 .photo-inner img{width:100%;height:100%;object-fit:cover;object-position:top}
 .hloc{position:absolute;right:-30px;top:50%;transform:translateY(-50%) rotate(90deg);font-size:.6rem;letter-spacing:.25em;text-transform:uppercase;color:var(--light);white-space:nowrap}
 .scroll-hint{position:absolute;bottom:3rem;left:10%;display:flex;align-items:center;gap:1rem;font-size:.65rem;letter-spacing:.18em;text-transform:uppercase;color:var(--light)}
-.scroll-hint::before{content:'';display:block;width:1px;height:40px;background:var(--gold);animation:scl 1.8s ease-in-out infinite}
+.scroll-hint::before{content:'';display:block;width:1px;height:40px;background:var(--gold);animation:scl 1.8s ease-in-out infinite;transition:background .4s}
 @keyframes scl{0%{transform:scaleY(0);transform-origin:top}50%{transform:scaleY(1);transform-origin:top}51%{transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
 @media(max-width:900px){.hero{grid-template-columns:1fr;padding:7rem 6% 4rem;gap:3rem}.hero::after{display:none}.hero-l{padding-right:0}.hero-r{justify-content:flex-start;padding:0}.scroll-hint{display:none}}
 
-.ticker{background:#1a1612;padding:.7rem 0;overflow:hidden;transition:background .4s}
-body.dark .ticker{background:#0a0908}
+.ticker{background:var(--ticker-bg);padding:.7rem 0;overflow:hidden;transition:background .4s}
 .ticker-t{display:flex;white-space:nowrap;animation:tk 30s linear infinite}
 .ticker-t:hover{animation-play-state:paused}
 @keyframes tk{from{transform:translateX(0)}to{transform:translateX(-50%)}}
-.tki{display:inline-flex;align-items:center;gap:1.2rem;font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;color:#6b5e4e;padding:0 2rem}
-.tki .dot{width:4px;height:4px;background:var(--gold);border-radius:50%;flex-shrink:0}
+.tki{display:inline-flex;align-items:center;gap:1.2rem;font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;color:var(--nav-link);padding:0 2rem;transition:color .4s}
+.tki .dot{width:4px;height:4px;background:var(--gold);border-radius:50%;flex-shrink:0;transition:background .4s}
 
-.about{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid var(--border2);background:var(--white);transition:background .4s,border-color .4s}
+.about{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid var(--border2);background:var(--white);transition:background .45s,border-color .4s}
 .about-l{padding:7rem 4rem 7rem 10%;border-right:1px solid var(--border2);transition:border-color .4s}
 .about-r{padding:7rem 10% 7rem 4rem}
-.sec-lbl{display:flex;align-items:center;gap:.8rem;font-size:.65rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:2rem}
+.sec-lbl{display:flex;align-items:center;gap:.8rem;font-size:.65rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:2rem;transition:color .4s}
 .sec-lbl::before{content:'——';letter-spacing:-.1em}
 .about-h{font-family:var(--fs);font-size:clamp(2.2rem,4vw,3.2rem);font-weight:300;line-height:1.15;color:var(--dark)}
-.about-h em{font-style:italic;color:var(--gold)}
+.about-h em{font-style:italic;color:var(--gold);transition:color .4s}
 .about-r p{font-size:.88rem;color:var(--mid);line-height:1.9;margin-bottom:1.4rem}
 .about-r p strong{color:var(--dark2);font-weight:500}
 .atable{margin-top:2.5rem;border-top:1px solid var(--border2)}
@@ -141,21 +179,21 @@ body.dark .ticker{background:#0a0908}
 .arow-v a{color:var(--gold);transition:opacity .2s}.arow-v a:hover{opacity:.7}
 @media(max-width:900px){.about{grid-template-columns:1fr}.about-l{padding:5rem 6% 2rem;border-right:none;border-bottom:1px solid var(--border2)}.about-r{padding:2rem 6% 5rem}}
 
-.skills{border-top:1px solid var(--border2);padding:7rem 10%;background:var(--cream);transition:background .4s}
+.skills{border-top:1px solid var(--border2);padding:7rem 10%;background:var(--cream);transition:background .45s}
 .sg{display:grid;grid-template-columns:repeat(3,1fr);border:1px solid var(--border);transition:border-color .4s}
 .sc{padding:3rem 2.5rem;border-right:1px solid var(--border);transition:background .25s,border-color .4s}
 .sc:last-child{border-right:none}
 .sc:hover{background:var(--white)}
-.snum{font-size:.65rem;letter-spacing:.2em;color:var(--gold);margin-bottom:1.8rem}
+.snum{font-size:.65rem;letter-spacing:.2em;color:var(--gold);margin-bottom:1.8rem;transition:color .4s}
 .stitle{font-family:var(--fs);font-size:2rem;font-weight:300;color:var(--dark);margin-bottom:1.8rem}
 .slist li{font-size:.8rem;color:var(--mid);padding:.5rem 0;border-bottom:1px solid var(--border2);transition:color .2s}
 .slist li:last-child{border-bottom:none}
 .slist li:hover{color:var(--gold)}
 @media(max-width:900px){.skills{padding:5rem 6%}.sg{grid-template-columns:1fr}.sc{border-right:none;border-bottom:1px solid var(--border)}.sc:last-child{border-bottom:none}}
 
-.ptrain{border-top:1px solid var(--border2);padding:7rem 10%;background:var(--white);transition:background .4s}
+.ptrain{border-top:1px solid var(--border2);padding:7rem 10%;background:var(--white);transition:background .45s}
 .sec-title{font-family:var(--fs);font-size:clamp(3rem,5vw,4.5rem);font-weight:300;line-height:1.1;margin-bottom:4rem}
-.sec-title em{display:block;color:var(--gold);font-style:italic}
+.sec-title em{display:block;color:var(--gold);font-style:italic;transition:color .4s}
 .acc{border-top:1px solid var(--border2)}
 .ai{border-bottom:1px solid var(--border2);transition:border-color .4s}
 .ah{display:flex;align-items:center;gap:2rem;padding:1.6rem 0;cursor:pointer}
@@ -174,40 +212,40 @@ body.dark .ticker{background:#0a0908}
 .atag:hover{border-color:var(--gold);color:var(--gold)}
 @media(max-width:768px){.ptrain{padding:5rem 6%}.abi{grid-template-columns:1fr}}
 
-.parcours{border-top:1px solid var(--border2);padding:7rem 10%;background:var(--cream);transition:background .4s}
-.parcours-t{font-family:var(--fs);font-size:clamp(2.5rem,4vw,3.5rem);font-weight:300;font-style:italic;color:var(--gold);margin-bottom:4rem}
+.parcours{border-top:1px solid var(--border2);padding:7rem 10%;background:var(--cream);transition:background .45s}
+.parcours-t{font-family:var(--fs);font-size:clamp(2.5rem,4vw,3.5rem);font-weight:300;font-style:italic;color:var(--gold);margin-bottom:4rem;transition:color .4s}
 .ptable{width:100%;border-collapse:collapse}
 .pthead th{font-size:.6rem;letter-spacing:.2em;text-transform:uppercase;color:var(--light);padding-bottom:1.2rem;text-align:left;border-bottom:1px solid var(--border2)}
 .ptr td{padding:1.4rem 0;border-bottom:1px solid var(--border2);vertical-align:top;transition:border-color .4s}
 .ptr:last-child td{border-bottom:none}
-.py{font-size:.78rem;color:var(--gold);white-space:nowrap;padding-right:2rem}
+.py{font-size:.78rem;color:var(--gold);white-space:nowrap;padding-right:2rem;transition:color .4s}
 .pr{font-size:.9rem;color:var(--dark2);font-weight:400;padding-right:2rem}
 .pd{font-size:.82rem;color:var(--mid);line-height:1.7}
 @media(max-width:768px){.parcours{padding:5rem 6%}.pthead{display:none}.ptr{display:flex;flex-direction:column;gap:.4rem;padding-bottom:1.5rem}.ptr td{padding:.1rem 0;border:none}}
 
-.vision{border-top:1px solid var(--border2);padding:7rem 10%;background:var(--white);text-align:center;transition:background .4s}
+.vision{border-top:1px solid var(--border2);padding:7rem 10%;background:var(--white);text-align:center;transition:background .45s}
 .vlbl{font-size:.62rem;letter-spacing:.3em;text-transform:uppercase;color:var(--light);margin-bottom:3rem;display:flex;align-items:center;justify-content:center;gap:1rem}
-.vlbl::before,.vlbl::after{content:'';display:block;width:40px;height:1px;background:var(--border)}
+.vlbl::before,.vlbl::after{content:'';display:block;width:40px;height:1px;background:var(--border);transition:background .4s}
 .vq{font-family:var(--fs);font-size:clamp(2.5rem,5vw,4.5rem);font-weight:300;line-height:1.1;color:var(--dark);max-width:900px;margin:0 auto 2rem}
-.vq em{color:var(--gold);font-style:italic}
+.vq em{color:var(--gold);font-style:italic;transition:color .4s}
 .vsub{font-size:.88rem;color:var(--mid);max-width:560px;margin:0 auto;line-height:1.8}
 .vdots{display:flex;justify-content:center;gap:.6rem;margin-top:3rem}
 .vd{width:7px;height:7px;border-radius:50%;background:var(--border);cursor:pointer;transition:background .2s}
 .vd.on{background:var(--gold)}
 
-.reseau{border-top:1px solid var(--border2);padding:7rem 10%;background:var(--cream);transition:background .4s}
+.reseau{border-top:1px solid var(--border2);padding:7rem 10%;background:var(--cream);transition:background .45s}
 .rg{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-top:3rem}
 .rc{background:var(--white);border:1px solid var(--border);padding:2.5rem;transition:border-color .2s,transform .2s,background .4s;display:block}
 .rc:hover{border-color:var(--gold);transform:translateY(-2px)}
-.ricon{width:36px;height:36px;display:flex;align-items:center;justify-content:center;margin-bottom:1.5rem;color:var(--gold)}
+.ricon{width:36px;height:36px;display:flex;align-items:center;justify-content:center;margin-bottom:1.5rem;color:var(--gold);transition:color .4s}
 .ricon svg{width:26px;height:26px}
 .rname{font-family:var(--fs);font-size:1.3rem;font-weight:300;margin-bottom:.6rem;color:var(--dark)}
 .rhandle{font-size:.78rem;color:var(--light)}
 @media(max-width:600px){.reseau{padding:5rem 6%}.rg{grid-template-columns:1fr}}
 
-.contact{border-top:1px solid var(--border2);padding:7rem 10%;background:var(--white);display:grid;grid-template-columns:1fr 1fr;gap:5rem;transition:background .4s}
+.contact{border-top:1px solid var(--border2);padding:7rem 10%;background:var(--white);display:grid;grid-template-columns:1fr 1fr;gap:5rem;transition:background .45s}
 .ctitle{font-family:var(--fs);font-size:clamp(2.8rem,5vw,4.2rem);font-weight:300;line-height:1.05;margin-bottom:1.5rem;color:var(--dark)}
-.ctitle em{display:block;color:var(--gold);font-style:italic}
+.ctitle em{display:block;color:var(--gold);font-style:italic;transition:color .4s}
 .cdesc{font-size:.85rem;color:var(--mid);line-height:1.85;margin-bottom:2.5rem}
 .crows{border-top:1px solid var(--border2)}
 .crow{display:grid;grid-template-columns:80px 1fr;gap:1rem;padding:1.1rem 0;border-bottom:1px solid var(--border2);align-items:center;transition:border-color .4s}
@@ -215,15 +253,14 @@ body.dark .ticker{background:#0a0908}
 .cv{font-size:.85rem;color:var(--dark2)}
 .cv a{transition:color .2s}.cv a:hover{color:var(--gold)}
 .cq-wrap{display:flex;align-items:center}
-.cquote{border-left:2px solid var(--gold);padding-left:2rem}
+.cquote{border-left:2px solid var(--gold);padding-left:2rem;transition:border-color .4s}
 .cquote blockquote{font-family:var(--fs);font-size:1.2rem;font-style:italic;font-weight:300;color:var(--dark2);line-height:1.6;margin-bottom:1rem}
-.cquote cite{font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);font-style:normal}
+.cquote cite{font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);font-style:normal;transition:color .4s}
 .cquote cite::before{content:'— '}
 @media(max-width:900px){.contact{grid-template-columns:1fr;gap:3rem;padding:5rem 6%}}
 
-footer{background:#1a1612;padding:1.5rem 10%;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;transition:background .4s}
-body.dark footer{background:#0a0908}
-.fcopy,.floc{font-size:.65rem;letter-spacing:.12em;color:#6b5e4e}
+footer{background:var(--footer-bg);padding:1.5rem 10%;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;transition:background .4s}
+.fcopy,.floc{font-size:.65rem;letter-spacing:.12em;color:var(--nav-link);transition:color .4s}
 
 .rv{opacity:0;transform:translateY(20px);transition:opacity .6s,transform .6s}
 .rv.d1{transition-delay:.1s}.rv.d2{transition-delay:.2s}.rv.d3{transition-delay:.3s}
@@ -235,7 +272,6 @@ body.dark footer{background:#0a0908}
 <div class="cur-ring" id="curRing"></div>
 <div class="pbar"><div class="pfill" id="pfill"></div></div>
 
-<!-- NAV -->
 <nav id="nav">
   <div class="nav-logo">Bienvenu <span>DAGA</span></div>
   <ul class="nav-links">
@@ -247,8 +283,8 @@ body.dark footer{background:#0a0908}
     <li><a href="#contact" id="t-nav-contact">Contact</a></li>
   </ul>
   <div class="nav-r">
-    <button id="langBtn" title="Changer la langue">FR</button>
-    <button id="moonBtn" title="Mode sombre / clair">☽</button>
+    <button id="langBtn" class="nav-btn">FR</button>
+    <button id="themeBtn" class="nav-btn">🌿 Crème<span class="theme-dot" id="themeDot"></span></button>
   </div>
   <button class="burger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button>
 </nav>
@@ -264,7 +300,6 @@ body.dark footer{background:#0a0908}
   </ul>
 </div>
 
-<!-- HERO -->
 <section class="hero" id="hero">
   <div class="hero-l">
     <div class="htag"><span id="t-hero-tag">Data Scientist · Bénin, Afrique de l'Ouest</span></div>
@@ -284,16 +319,13 @@ body.dark footer{background:#0a0908}
   <div class="hero-r">
     <div class="photo-w">
       <div class="photo-frame"></div>
-      <div class="photo-inner">
-        <img src="images/profile.jpg" alt="Bienvenu DAGA" onerror="this.style.display='none'"/>
-      </div>
+      <div class="photo-inner"><img src="images/profile.jpg" alt="Bienvenu DAGA" onerror="this.style.display='none'"/></div>
       <div class="hloc" id="t-hero-loc">Cotonou, Bénin · 2025</div>
     </div>
   </div>
   <div class="scroll-hint"><span id="t-scroll-hint">Défiler</span></div>
 </section>
 
-<!-- TICKER -->
 <div class="ticker">
   <div class="ticker-t">
     <span class="tki">Cotonou, Bénin<span class="dot"></span></span><span class="tki">Digital Innovation<span class="dot"></span></span><span class="tki">Data Analysis<span class="dot"></span></span><span class="tki">Machine Learning<span class="dot"></span></span><span class="tki">SQL &amp; Python<span class="dot"></span></span><span class="tki">Web Front-End<span class="dot"></span></span><span class="tki">West Africa<span class="dot"></span></span><span class="tki">Data Visualization<span class="dot"></span></span><span class="tki">SCITI<span class="dot"></span></span>
@@ -301,7 +333,6 @@ body.dark footer{background:#0a0908}
   </div>
 </div>
 
-<!-- ABOUT -->
 <section class="about" id="about">
   <div class="about-l">
     <div class="sec-lbl rv" id="t-lbl-about">À Propos</div>
@@ -320,7 +351,6 @@ body.dark footer{background:#0a0908}
   </div>
 </section>
 
-<!-- SKILLS -->
 <section class="skills" id="skills">
   <div class="sec-lbl rv" id="t-lbl-skills" style="margin-bottom:2.5rem">Compétences</div>
   <div class="sg rv d1">
@@ -330,28 +360,26 @@ body.dark footer{background:#0a0908}
   </div>
 </section>
 
-<!-- PROJECTS -->
 <section class="ptrain" id="projects">
   <h2 class="sec-title rv"><span id="t-train-title-1">Projets</span><br><em id="t-train-title-2">d'entraînement.</em></h2>
   <div class="acc">
     <div class="ai rv" id="acc1">
       <div class="ah" onclick="toggleAcc('acc1')"><span class="an">01</span><span class="at" id="t-acc1-title">Mortalité &amp; durée de séjour en ICU hospitalière</span><div class="aic">+</div></div>
       <div class="ab"><div class="abi">
-        <div class="adesc" id="t-acc1-desc">Sur un échantillon de la base <strong>MIMIC-III</strong>, j'ai réalisé une analyse exploratoire approfondie pour identifier des indicateurs clés de santé en soins intensifs. Analyse de la mortalité hospitalière et de la durée de séjour pour différentes pathologies.<br><br>Mes visualisations synthétisent des informations médicales denses en insights actionnables pour les équipes médicales et les décideurs de santé.</div>
+        <div class="adesc" id="t-acc1-desc">Sur un échantillon de la base <strong>MIMIC-III</strong>, j'ai réalisé une analyse exploratoire approfondie pour identifier des indicateurs clés de santé en soins intensifs.<br><br>Mes visualisations synthétisent des informations médicales denses en insights actionnables pour les équipes médicales et les décideurs de santé.</div>
         <div><p style="font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;color:var(--light);margin-bottom:.75rem" id="t-lbl-tech-1">Technologies</p><div class="astack"><span class="atag">Python</span><span class="atag">Pandas</span><span class="atag">Matplotlib</span><span class="atag">Seaborn</span><span class="atag">MIMIC-III</span><span class="atag">EDA</span></div></div>
       </div></div>
     </div>
     <div class="ai rv d1" id="acc2">
       <div class="ah" onclick="toggleAcc('acc2')"><span class="an">02</span><span class="at" id="t-acc2-title">Analyse des tendances commerciales — Vidéothèque Sakila</span><div class="aic">+</div></div>
       <div class="ab"><div class="abi">
-        <div class="adesc" id="t-acc2-desc">Interrogation et nettoyage complet de la base <strong>Sakila</strong> pour révéler les préférences des clients, les pics d'activité saisonniers et les performances des films par catégorie.<br><br>Des dashboards clairs permettent de prendre des décisions commerciales stratégiques en un coup d'œil — optimisation du catalogue, fidélisation client, gestion des stocks.</div>
+        <div class="adesc" id="t-acc2-desc">Interrogation et nettoyage complet de la base <strong>Sakila</strong> pour révéler les préférences des clients, les pics d'activité saisonniers et les performances des films par catégorie.<br><br>Des dashboards clairs permettent de prendre des décisions commerciales stratégiques en un coup d'œil.</div>
         <div><p style="font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;color:var(--light);margin-bottom:.75rem" id="t-lbl-tech-2">Technologies</p><div class="astack"><span class="atag">SQL</span><span class="atag">Python</span><span class="atag">R</span><span class="atag">Dashboard</span><span class="atag">Business Analytics</span></div></div>
       </div></div>
     </div>
   </div>
 </section>
 
-<!-- PARCOURS -->
 <section class="parcours" id="parcours">
   <h2 class="parcours-t rv" id="t-parcours-title">Parcours</h2>
   <div class="rv d1">
@@ -366,7 +394,6 @@ body.dark footer{background:#0a0908}
   </div>
 </section>
 
-<!-- VISION -->
 <section class="vision" id="vision">
   <div class="vlbl rv" id="t-vision-lbl">Perspective · Vision</div>
   <h2 class="vq rv d1" id="t-vision-q">Analyser, modéliser,<br><em>transformer.</em></h2>
@@ -374,7 +401,6 @@ body.dark footer{background:#0a0908}
   <div class="vdots"><div class="vd on"></div><div class="vd"></div></div>
 </section>
 
-<!-- RÉSEAU -->
 <section class="reseau" id="reseau">
   <div class="sec-lbl rv" id="t-lbl-reseau">Réseau</div>
   <div class="rg">
@@ -393,7 +419,6 @@ body.dark footer{background:#0a0908}
   </div>
 </section>
 
-<!-- CONTACT -->
 <section class="contact" id="contact">
   <div>
     <div class="sec-lbl rv" id="t-lbl-contact">Contact</div>
@@ -420,277 +445,202 @@ body.dark footer{background:#0a0908}
 </footer>
 
 <script>
-/* ============ TRANSLATIONS — FR / EN / ES / DE ============ */
-const T = {
-fr: {
+/* ====================================================
+   THÈMES — 6 thèmes en cycle au clic
+   ==================================================== */
+const THEMES = [
+  { cls:'',         emoji:'🌿', label:'Crème',  dot:'#b8962e' },
+  { cls:'t-nuit',   emoji:'🌑', label:'Nuit',   dot:'#c9a84c' },
+  { cls:'t-ocean',  emoji:'🌊', label:'Océan',  dot:'#1a7fbf' },
+  { cls:'t-foret',  emoji:'🌲', label:'Forêt',  dot:'#2e8b28' },
+  { cls:'t-braise', emoji:'🔥', label:'Braise', dot:'#c0392b' },
+  { cls:'t-violet', emoji:'💜', label:'Violet', dot:'#7c3aed' },
+];
+const ALL_T_CLS = THEMES.map(t=>t.cls).filter(Boolean);
+let tIdx = 0;
+const themeBtn = document.getElementById('themeBtn');
+const themeDot  = document.getElementById('themeDot');
+
+function applyTheme(i) {
+  const t = THEMES[i];
+  document.body.classList.remove(...ALL_T_CLS);
+  if (t.cls) document.body.classList.add(t.cls);
+  themeBtn.childNodes[0].textContent = `${t.emoji} ${t.label}`;
+  themeDot.style.background = t.dot;
+}
+
+themeBtn.addEventListener('click', () => {
+  tIdx = (tIdx + 1) % THEMES.length;
+  applyTheme(tIdx);
+  themeBtn.style.borderColor = 'var(--gold)';
+  themeBtn.style.color = 'var(--gold)';
+  setTimeout(() => { themeBtn.style.borderColor=''; themeBtn.style.color=''; }, 700);
+});
+
+/* ====================================================
+   LANGUES — FR / EN / ES / DE
+   ==================================================== */
+const T={
+fr:{
   'nav-about':'À Propos','nav-skills':'Compétences','nav-projects':'Projets','nav-parcours':'Parcours','nav-reseau':'Réseau','nav-contact':'Contact',
-  'hero-tag':"Data Scientist · Bénin, Afrique de l'Ouest",
-  'hero-quote':"La data rencontre le design. L'analytique rencontre la créativité.",
+  'hero-tag':"Data Scientist · Bénin, Afrique de l'Ouest",'hero-quote':"La data rencontre le design. L'analytique rencontre la créativité.",
   'chip-1':'Data Science','chip-2':'Machine Learning','chip-3':'Web Front-End','chip-4':'Design UI/UX',
-  'btn-projects':'Voir mes projets','btn-contact':'Me contacter',
-  'hero-loc':'Cotonou, Bénin · 2025','scroll-hint':'Défiler',
-  'lbl-about':'À Propos',
-  'about-h':"La data rencontre l'<em>intelligence</em> business.",
+  'btn-projects':'Voir mes projets','btn-contact':'Me contacter','hero-loc':'Cotonou, Bénin · 2025','scroll-hint':'Défiler',
+  'lbl-about':'À Propos','about-h':"La data rencontre l'<em>intelligence</em> business.",
   'about-p1':'Étudiant en <strong>Digitalisation & Sciences de Données</strong> au Sèmè City Institute of Technology and Innovation, je construis des ponts entre les besoins métier concrets et le monde technique.',
   'about-p2':"Je ne me contente pas d'analyser. J'utilise la data pour <strong>modéliser, prédire et recommander</strong> des actions concrètes — puis je donne une forme persuasive et visuelle à ces insights pour qu'ils génèrent un impact réel.",
   'about-p3':"L'architecte du pont entre la data et le design. Je combine la rigueur analytique d'un data scientist et l'agilité créative d'un designer-développeur.",
   'row-statut-k':'Statut','row-statut-v':'Étudiant, Digitalisation & Data — SCITI',
-  'row-lieu-k':'Lieu','row-lieu-v':'Cotonou, Bénin',
-  'row-lang-k':'Langues','row-lang-v':'Français (courant) · Anglais (intermédiaire)','row-email-k':'Email',
+  'row-lieu-k':'Lieu','row-lieu-v':'Cotonou, Bénin','row-lang-k':'Langues','row-lang-v':'Français (courant) · Anglais (intermédiaire)','row-email-k':'Email',
   'lbl-skills':'Compétences','skill-t1':'Data','skill-t2':'Design','skill-t3':'Build',
   'train-title-1':'Projets','train-title-2':"d'entraînement.",
   'acc1-title':'Mortalité &amp; durée de séjour en ICU hospitalière',
-  'acc1-desc':"Sur un échantillon de la base <strong>MIMIC-III</strong>, j'ai réalisé une analyse exploratoire approfondie pour identifier des indicateurs clés de santé en soins intensifs. Analyse de la mortalité hospitalière et de la durée de séjour pour différentes pathologies.<br><br>Mes visualisations synthétisent des informations médicales denses en insights actionnables pour les équipes médicales et les décideurs de santé.",
+  'acc1-desc':"Sur un échantillon de la base <strong>MIMIC-III</strong>, j'ai réalisé une analyse exploratoire approfondie pour identifier des indicateurs clés de santé en soins intensifs.<br><br>Mes visualisations synthétisent des informations médicales denses en insights actionnables pour les équipes médicales.",
   'acc2-title':'Analyse des tendances commerciales — Vidéothèque Sakila',
-  'acc2-desc':"Interrogation et nettoyage complet de la base <strong>Sakila</strong> pour révéler les préférences des clients, les pics d'activité saisonniers et les performances des films par catégorie.<br><br>Des dashboards clairs permettent de prendre des décisions commerciales stratégiques en un coup d'œil — optimisation du catalogue, fidélisation client, gestion des stocks.",
+  'acc2-desc':"Interrogation et nettoyage complet de la base <strong>Sakila</strong> pour révéler les préférences des clients, les pics d'activité saisonniers et les performances des films.<br><br>Des dashboards clairs permettent de prendre des décisions commerciales stratégiques en un coup d'œil.",
   'lbl-tech':'Technologies','parcours-title':'Parcours',
   'p-th-year':'Année','p-th-role':'Projet / Formation','p-th-desc':'Description',
   'p1-year':'2025 — …','p1-role':'Étudiant, Sèmè City','p1-desc':'Sèmè City Institute of Technology and Innovation — Digitalisation & Data Science.',
   'p2-year':'2025','p2-role':'Projet ICU — MIMIC-III','p2-desc':'Analyse exploratoire sur données médicales de soins intensifs — mortalité et durée de séjour.',
   'p3-year':'2025','p3-role':'Projet Sakila — Business Analytics','p3-desc':'Analyse des tendances clients et performances commerciales via SQL & Python.',
-  'vision-lbl':'Perspective · Vision',
-  'vision-q':'Analyser, modéliser,<br><em>transformer.</em>',
+  'vision-lbl':'Perspective · Vision','vision-q':'Analyser, modéliser,<br><em>transformer.</em>',
   'vision-sub':"Je suis au début de mon parcours. J'apprends la data science, je construis des outils qui servent à quelque chose, et j'essaie de comprendre comment la technologie peut répondre aux réalités concrètes des entreprises africaines. Pas de grands discours — juste du travail honnête.",
-  'lbl-reseau':'Réseau','lbl-contact':'Contact',
-  'contact-title':'Construisons<br><em>quelque chose.</em>',
+  'lbl-reseau':'Réseau','lbl-contact':'Contact','contact-title':'Construisons<br><em>quelque chose.</em>',
   'contact-desc':"Ouvert aux collaborations, projets data, stages et conversations autour de la tech & du design. Je suis disponible pour des opportunités freelance ou académiques.",
   'c-email-k':'Email','c-li-k':'LinkedIn','c-gh-k':'GitHub','c-lieu-k':'Lieu','c-lieu-v':'Cotonou, Bénin',
-  'contact-quote':'"Je ne me contente pas d\'analyser ; je donne une forme persuasive aux insights."',
-  'contact-cite':'Bienvenu DAGA',
+  'contact-quote':'"Je ne me contente pas d\'analyser ; je donne une forme persuasive aux insights."','contact-cite':'Bienvenu DAGA',
   'foot-copy':'© 2025 Bienvenu DAGA · Tous droits réservés.','foot-loc':"Cotonou, Bénin · Afrique de l'Ouest",
 },
-
-en: {
+en:{
   'nav-about':'About','nav-skills':'Skills','nav-projects':'Projects','nav-parcours':'Journey','nav-reseau':'Network','nav-contact':'Contact',
-  'hero-tag':'Data Scientist · Benin, West Africa',
-  'hero-quote':'Where data meets design. Where analytics meets creativity.',
+  'hero-tag':'Data Scientist · Benin, West Africa','hero-quote':'Where data meets design. Where analytics meets creativity.',
   'chip-1':'Data Science','chip-2':'Machine Learning','chip-3':'Web Front-End','chip-4':'UI/UX Design',
-  'btn-projects':'See my projects','btn-contact':'Contact me',
-  'hero-loc':'Cotonou, Benin · 2025','scroll-hint':'Scroll',
-  'lbl-about':'About',
-  'about-h':'Where data meets <em>business intelligence.</em>',
+  'btn-projects':'See my projects','btn-contact':'Contact me','hero-loc':'Cotonou, Benin · 2025','scroll-hint':'Scroll',
+  'lbl-about':'About','about-h':'Where data meets <em>business intelligence.</em>',
   'about-p1':'Student in <strong>Digitalisation & Data Science</strong> at Sèmè City Institute of Technology and Innovation, I bridge the gap between concrete business needs and the technical world.',
   'about-p2':"I don't just analyse. I use data to <strong>model, predict and recommend</strong> concrete actions — then give a persuasive, visual form to these insights so they generate real impact.",
   'about-p3':"The architect bridging data and design. I combine the analytical rigour of a data scientist with the creative agility of a designer-developer.",
   'row-statut-k':'Status','row-statut-v':'Student, Digitalisation & Data — SCITI',
-  'row-lieu-k':'Location','row-lieu-v':'Cotonou, Benin',
-  'row-lang-k':'Languages','row-lang-v':'French (fluent) · English (intermediate)','row-email-k':'Email',
+  'row-lieu-k':'Location','row-lieu-v':'Cotonou, Benin','row-lang-k':'Languages','row-lang-v':'French (fluent) · English (intermediate)','row-email-k':'Email',
   'lbl-skills':'Skills','skill-t1':'Data','skill-t2':'Design','skill-t3':'Build',
   'train-title-1':'Training','train-title-2':'Projects.',
   'acc1-title':'Mortality &amp; Length of Stay in Hospital ICU',
-  'acc1-desc':'Using a sample of the <strong>MIMIC-III</strong> database, I conducted an in-depth exploratory analysis to identify key health indicators in intensive care. Analysis of hospital mortality and length of stay for various pathologies.<br><br>My visualisations synthesise dense medical information into actionable insights for medical teams and health decision-makers.',
+  'acc1-desc':'Using a sample of the <strong>MIMIC-III</strong> database, I conducted an in-depth exploratory analysis to identify key health indicators in intensive care.<br><br>My visualisations synthesise dense medical information into actionable insights for medical teams and health decision-makers.',
   'acc2-title':'Commercial Trend Analysis — Sakila Video Store',
-  'acc2-desc':'Complete querying and cleaning of the <strong>Sakila</strong> database to reveal customer preferences, seasonal activity peaks and film performance by category.<br><br>Clear dashboards enable strategic business decisions at a glance — catalogue optimisation, customer retention, inventory management.',
+  'acc2-desc':'Complete querying and cleaning of the <strong>Sakila</strong> database to reveal customer preferences, seasonal activity peaks and film performance by category.<br><br>Clear dashboards enable strategic business decisions at a glance.',
   'lbl-tech':'Technologies','parcours-title':'Journey',
   'p-th-year':'Year','p-th-role':'Project / Training','p-th-desc':'Description',
   'p1-year':'2025 — …','p1-role':'Student, Sèmè City','p1-desc':'Sèmè City Institute of Technology and Innovation — Digitalisation & Data Science.',
   'p2-year':'2025','p2-role':'ICU Project — MIMIC-III','p2-desc':'Exploratory analysis on intensive care medical data — mortality and length of stay.',
   'p3-year':'2025','p3-role':'Sakila Project — Business Analytics','p3-desc':'Customer trend and commercial performance analysis via SQL & Python.',
-  'vision-lbl':'Perspective · Vision',
-  'vision-q':'Analyse, model,<br><em>transform.</em>',
+  'vision-lbl':'Perspective · Vision','vision-q':'Analyse, model,<br><em>transform.</em>',
   'vision-sub':"I am at the beginning of my journey. I'm learning data science, building tools that serve a purpose, and trying to understand how technology can respond to concrete business realities. No big talk — just honest work.",
-  'lbl-reseau':'Network','lbl-contact':'Contact',
-  'contact-title':"Let's build<br><em>something.</em>",
+  'lbl-reseau':'Network','lbl-contact':'Contact','contact-title':"Let's build<br><em>something.</em>",
   'contact-desc':'Open to collaborations, data projects, internships and conversations around tech & design. Available for freelance or academic opportunities.',
   'c-email-k':'Email','c-li-k':'LinkedIn','c-gh-k':'GitHub','c-lieu-k':'Location','c-lieu-v':'Cotonou, Benin',
-  'contact-quote':'"I don\'t just analyse; I give a persuasive form to insights."',
-  'contact-cite':'Bienvenu DAGA',
+  'contact-quote':'"I don\'t just analyse; I give a persuasive form to insights."','contact-cite':'Bienvenu DAGA',
   'foot-copy':'© 2025 Bienvenu DAGA · All rights reserved.','foot-loc':'Cotonou, Benin · West Africa',
 },
-
-es: {
+es:{
   'nav-about':'Sobre mí','nav-skills':'Habilidades','nav-projects':'Proyectos','nav-parcours':'Trayectoria','nav-reseau':'Red','nav-contact':'Contacto',
-  'hero-tag':'Científico de Datos · Benín, África Occidental',
-  'hero-quote':'Donde los datos se encuentran con el diseño. Donde la analítica se une a la creatividad.',
+  'hero-tag':'Científico de Datos · Benín, África Occidental','hero-quote':'Donde los datos se encuentran con el diseño. Donde la analítica se une a la creatividad.',
   'chip-1':'Ciencia de Datos','chip-2':'Machine Learning','chip-3':'Web Front-End','chip-4':'Diseño UI/UX',
-  'btn-projects':'Ver mis proyectos','btn-contact':'Contáctame',
-  'hero-loc':'Cotonú, Benín · 2025','scroll-hint':'Desplazar',
-  'lbl-about':'Sobre mí',
-  'about-h':'Donde los datos se encuentran con la <em>inteligencia</em> de negocio.',
+  'btn-projects':'Ver mis proyectos','btn-contact':'Contáctame','hero-loc':'Cotonú, Benín · 2025','scroll-hint':'Desplazar',
+  'lbl-about':'Sobre mí','about-h':'Donde los datos se encuentran con la <em>inteligencia</em> de negocio.',
   'about-p1':'Estudiante de <strong>Digitalización y Ciencia de Datos</strong> en el Sèmè City Institute of Technology and Innovation, construyo puentes entre las necesidades empresariales concretas y el mundo técnico.',
   'about-p2':"No me limito a analizar. Utilizo los datos para <strong>modelar, predecir y recomendar</strong> acciones concretas — luego doy una forma persuasiva y visual a esos insights para que generen un impacto real.",
   'about-p3':"El arquitecto que une datos y diseño. Combino el rigor analítico de un científico de datos con la agilidad creativa de un diseñador-desarrollador.",
   'row-statut-k':'Estado','row-statut-v':'Estudiante, Digitalización & Data — SCITI',
-  'row-lieu-k':'Ubicación','row-lieu-v':'Cotonú, Benín',
-  'row-lang-k':'Idiomas','row-lang-v':'Francés (fluido) · Inglés (intermedio)','row-email-k':'Correo',
+  'row-lieu-k':'Ubicación','row-lieu-v':'Cotonú, Benín','row-lang-k':'Idiomas','row-lang-v':'Francés (fluido) · Inglés (intermedio)','row-email-k':'Correo',
   'lbl-skills':'Habilidades','skill-t1':'Datos','skill-t2':'Diseño','skill-t3':'Desarrollo',
   'train-title-1':'Proyectos','train-title-2':'de entrenamiento.',
   'acc1-title':'Mortalidad &amp; duración de estancia en UCI hospitalaria',
-  'acc1-desc':'Usando una muestra de la base <strong>MIMIC-III</strong>, realicé un análisis exploratorio profundo para identificar indicadores clave de salud en cuidados intensivos. Análisis de la mortalidad hospitalaria y duración de estancia para distintas patologías.<br><br>Mis visualizaciones condensan información médica densa en insights accionables para equipos médicos y tomadores de decisiones en salud.',
+  'acc1-desc':'Usando una muestra de la base <strong>MIMIC-III</strong>, realicé un análisis exploratorio profundo para identificar indicadores clave de salud en cuidados intensivos.<br><br>Mis visualizaciones condensan información médica densa en insights accionables para equipos médicos.',
   'acc2-title':'Análisis de tendencias comerciales — Videoclub Sakila',
-  'acc2-desc':'Consulta y limpieza completa de la base <strong>Sakila</strong> para revelar preferencias de clientes, picos de actividad estacionales y rendimiento de películas por categoría.<br><br>Dashboards claros que permiten decisiones comerciales estratégicas de un vistazo — optimización del catálogo, fidelización de clientes, gestión de inventario.',
+  'acc2-desc':'Consulta y limpieza completa de la base <strong>Sakila</strong> para revelar preferencias de clientes, picos estacionales y rendimiento de películas por categoría.<br><br>Dashboards claros que permiten decisiones comerciales estratégicas de un vistazo.',
   'lbl-tech':'Tecnologías','parcours-title':'Trayectoria',
   'p-th-year':'Año','p-th-role':'Proyecto / Formación','p-th-desc':'Descripción',
   'p1-year':'2025 — …','p1-role':'Estudiante, Sèmè City','p1-desc':'Sèmè City Institute of Technology and Innovation — Digitalización & Ciencia de Datos.',
   'p2-year':'2025','p2-role':'Proyecto UCI — MIMIC-III','p2-desc':'Análisis exploratorio sobre datos médicos de cuidados intensivos — mortalidad y duración de estancia.',
-  'p3-year':'2025','p3-role':'Proyecto Sakila — Analítica de Negocios','p3-desc':'Análisis de tendencias de clientes y rendimiento comercial de un videoclub mediante SQL & Python.',
-  'vision-lbl':'Perspectiva · Visión',
-  'vision-q':'Analizar, modelar,<br><em>transformar.</em>',
+  'p3-year':'2025','p3-role':'Proyecto Sakila — Analítica de Negocios','p3-desc':'Análisis de tendencias de clientes y rendimiento comercial mediante SQL & Python.',
+  'vision-lbl':'Perspectiva · Visión','vision-q':'Analizar, modelar,<br><em>transformar.</em>',
   'vision-sub':"Estoy al inicio de mi trayectoria. Aprendo ciencia de datos, construyo herramientas útiles e intento entender cómo la tecnología puede responder a las realidades concretas de las empresas africanas. Sin grandes discursos — solo trabajo honesto.",
-  'lbl-reseau':'Red','lbl-contact':'Contacto',
-  'contact-title':'Construyamos<br><em>algo juntos.</em>',
+  'lbl-reseau':'Red','lbl-contact':'Contacto','contact-title':'Construyamos<br><em>algo juntos.</em>',
   'contact-desc':'Abierto a colaboraciones, proyectos de datos, prácticas y conversaciones sobre tecnología y diseño. Disponible para oportunidades freelance o académicas.',
   'c-email-k':'Correo','c-li-k':'LinkedIn','c-gh-k':'GitHub','c-lieu-k':'Ubicación','c-lieu-v':'Cotonú, Benín',
-  'contact-quote':'"No me limito a analizar; doy una forma persuasiva a los insights."',
-  'contact-cite':'Bienvenu DAGA',
+  'contact-quote':'"No me limito a analizar; doy una forma persuasiva a los insights."','contact-cite':'Bienvenu DAGA',
   'foot-copy':'© 2025 Bienvenu DAGA · Todos los derechos reservados.','foot-loc':'Cotonú, Benín · África Occidental',
 },
-
-de: {
+de:{
   'nav-about':'Über mich','nav-skills':'Fähigkeiten','nav-projects':'Projekte','nav-parcours':'Werdegang','nav-reseau':'Netzwerk','nav-contact':'Kontakt',
-  'hero-tag':'Data Scientist · Benin, Westafrika',
-  'hero-quote':'Wo Daten auf Design treffen. Wo Analytik auf Kreativität trifft.',
+  'hero-tag':'Data Scientist · Benin, Westafrika','hero-quote':'Wo Daten auf Design treffen. Wo Analytik auf Kreativität trifft.',
   'chip-1':'Data Science','chip-2':'Machine Learning','chip-3':'Web Front-End','chip-4':'UI/UX Design',
-  'btn-projects':'Meine Projekte','btn-contact':'Kontakt aufnehmen',
-  'hero-loc':'Cotonou, Benin · 2025','scroll-hint':'Scrollen',
-  'lbl-about':'Über mich',
-  'about-h':'Wo Daten auf <em>Business-Intelligenz</em> treffen.',
+  'btn-projects':'Meine Projekte','btn-contact':'Kontakt aufnehmen','hero-loc':'Cotonou, Benin · 2025','scroll-hint':'Scrollen',
+  'lbl-about':'Über mich','about-h':'Wo Daten auf <em>Business-Intelligenz</em> treffen.',
   'about-p1':'Als Student der <strong>Digitalisierung & Datenwissenschaft</strong> am Sèmè City Institute of Technology and Innovation baue ich Brücken zwischen konkreten Geschäftsanforderungen und der technischen Welt.',
-  'about-p2':"Ich begnüge mich nicht mit der Analyse. Ich nutze Daten, um konkrete Maßnahmen zu <strong>modellieren, vorherzusagen und zu empfehlen</strong> — und gebe diesen Erkenntnissen dann eine überzeugende, visuelle Form, damit sie echten Wirkung erzeugen.",
+  'about-p2':"Ich begnüge mich nicht mit der Analyse. Ich nutze Daten, um konkrete Maßnahmen zu <strong>modellieren, vorherzusagen und zu empfehlen</strong> — und gebe diesen Erkenntnissen dann eine überzeugende, visuelle Form.",
   'about-p3':"Der Architekt zwischen Daten und Design. Ich verbinde die analytische Strenge eines Datenwissenschaftlers mit der kreativen Agilität eines Designer-Entwicklers.",
   'row-statut-k':'Status','row-statut-v':'Student, Digitalisierung & Data — SCITI',
-  'row-lieu-k':'Standort','row-lieu-v':'Cotonou, Benin',
-  'row-lang-k':'Sprachen','row-lang-v':'Französisch (fließend) · Englisch (mittelstufe)','row-email-k':'E-Mail',
+  'row-lieu-k':'Standort','row-lieu-v':'Cotonou, Benin','row-lang-k':'Sprachen','row-lang-v':'Französisch (fließend) · Englisch (Mittelstufe)','row-email-k':'E-Mail',
   'lbl-skills':'Fähigkeiten','skill-t1':'Daten','skill-t2':'Design','skill-t3':'Entwicklung',
   'train-title-1':'Trainings-','train-title-2':'Projekte.',
   'acc1-title':'Sterblichkeit &amp; Aufenthaltsdauer auf der Intensivstation',
-  'acc1-desc':'Anhand einer Stichprobe der <strong>MIMIC-III</strong>-Datenbank führte ich eine eingehende explorative Analyse durch, um wichtige Gesundheitsindikatoren in der Intensivmedizin zu identifizieren. Analyse der Krankenhaussterblichkeit und Aufenthaltsdauer bei verschiedenen Erkrankungen.<br><br>Meine Visualisierungen verdichten dichte medizinische Informationen zu umsetzbaren Erkenntnissen für medizinische Teams und Gesundheitsentscheider.',
+  'acc1-desc':'Anhand einer Stichprobe der <strong>MIMIC-III</strong>-Datenbank führte ich eine eingehende explorative Analyse durch, um wichtige Gesundheitsindikatoren in der Intensivmedizin zu identifizieren.<br><br>Meine Visualisierungen verdichten dichte medizinische Informationen zu umsetzbaren Erkenntnissen.',
   'acc2-title':'Analyse kommerzieller Trends — Videothek Sakila',
-  'acc2-desc':'Vollständige Abfrage und Bereinigung der <strong>Sakila</strong>-Datenbank, um Kundenpräferenzen, saisonale Aktivitätsspitzen und Filmleistung nach Kategorie aufzudecken.<br><br>Klare Dashboards ermöglichen strategische Geschäftsentscheidungen auf einen Blick — Katalogoptimierung, Kundenbindung, Bestandsverwaltung.',
+  'acc2-desc':'Vollständige Abfrage und Bereinigung der <strong>Sakila</strong>-Datenbank, um Kundenpräferenzen und Filmleistung nach Kategorie aufzudecken.<br><br>Klare Dashboards ermöglichen strategische Geschäftsentscheidungen auf einen Blick.',
   'lbl-tech':'Technologien','parcours-title':'Werdegang',
   'p-th-year':'Jahr','p-th-role':'Projekt / Ausbildung','p-th-desc':'Beschreibung',
   'p1-year':'2025 — …','p1-role':'Student, Sèmè City','p1-desc':'Sèmè City Institute of Technology and Innovation — Digitalisierung & Datenwissenschaft.',
   'p2-year':'2025','p2-role':'Intensivstation-Projekt — MIMIC-III','p2-desc':'Explorative Analyse medizinischer Intensivdaten — Sterblichkeit und Aufenthaltsdauer.',
   'p3-year':'2025','p3-role':'Sakila-Projekt — Business Analytics','p3-desc':'Kunden- und Geschäftsleistungsanalyse einer Videothek mittels SQL & Python.',
-  'vision-lbl':'Perspektive · Vision',
-  'vision-q':'Analysieren, modellieren,<br><em>transformieren.</em>',
+  'vision-lbl':'Perspektive · Vision','vision-q':'Analysieren, modellieren,<br><em>transformieren.</em>',
   'vision-sub':"Ich stehe am Anfang meines Weges. Ich lerne Data Science, baue nützliche Werkzeuge und versuche zu verstehen, wie Technologie auf die konkreten Realitäten afrikanischer Unternehmen reagieren kann. Keine großen Reden — nur ehrliche Arbeit.",
-  'lbl-reseau':'Netzwerk','lbl-contact':'Kontakt',
-  'contact-title':'Lassen Sie uns<br><em>gemeinsam bauen.</em>',
+  'lbl-reseau':'Netzwerk','lbl-contact':'Kontakt','contact-title':'Lassen Sie uns<br><em>gemeinsam bauen.</em>',
   'contact-desc':'Offen für Kooperationen, Datenprojekte, Praktika und Gespräche rund um Tech & Design. Verfügbar für freiberufliche oder akademische Möglichkeiten.',
   'c-email-k':'E-Mail','c-li-k':'LinkedIn','c-gh-k':'GitHub','c-lieu-k':'Standort','c-lieu-v':'Cotonou, Benin',
-  'contact-quote':'"Ich begnüge mich nicht mit der Analyse; ich gebe Erkenntnissen eine überzeugende Form."',
-  'contact-cite':'Bienvenu DAGA',
+  'contact-quote':'"Ich begnüge mich nicht mit der Analyse; ich gebe Erkenntnissen eine überzeugende Form."','contact-cite':'Bienvenu DAGA',
   'foot-copy':'© 2025 Bienvenu DAGA · Alle Rechte vorbehalten.','foot-loc':'Cotonou, Benin · Westafrika',
 }
 };
+const IDM={'t-nav-about':'nav-about','t-nav-skills':'nav-skills','t-nav-projects':'nav-projects','t-nav-parcours':'nav-parcours','t-nav-reseau':'nav-reseau','t-nav-contact':'nav-contact','tm-about':'nav-about','tm-skills':'nav-skills','tm-projects':'nav-projects','tm-parcours':'nav-parcours','tm-reseau':'nav-reseau','tm-contact':'nav-contact','t-hero-tag':'hero-tag','t-hero-quote':'hero-quote','t-chip-1':'chip-1','t-chip-2':'chip-2','t-chip-3':'chip-3','t-chip-4':'chip-4','t-btn-projects':'btn-projects','t-btn-contact':'btn-contact','t-hero-loc':'hero-loc','t-scroll-hint':'scroll-hint','t-lbl-about':'lbl-about','t-about-h':'about-h','t-about-p1':'about-p1','t-about-p2':'about-p2','t-about-p3':'about-p3','t-row-statut-k':'row-statut-k','t-row-statut-v':'row-statut-v','t-row-lieu-k':'row-lieu-k','t-row-lieu-v':'row-lieu-v','t-row-lang-k':'row-lang-k','t-row-lang-v':'row-lang-v','t-row-email-k':'row-email-k','t-lbl-skills':'lbl-skills','t-skill-t1':'skill-t1','t-skill-t2':'skill-t2','t-skill-t3':'skill-t3','t-train-title-1':'train-title-1','t-train-title-2':'train-title-2','t-acc1-title':'acc1-title','t-acc1-desc':'acc1-desc','t-acc2-title':'acc2-title','t-acc2-desc':'acc2-desc','t-lbl-tech-1':'lbl-tech','t-lbl-tech-2':'lbl-tech','t-parcours-title':'parcours-title','t-p-th-year':'p-th-year','t-p-th-role':'p-th-role','t-p-th-desc':'p-th-desc','t-p1-year':'p1-year','t-p1-role':'p1-role','t-p1-desc':'p1-desc','t-p2-year':'p2-year','t-p2-role':'p2-role','t-p2-desc':'p2-desc','t-p3-year':'p3-year','t-p3-role':'p3-role','t-p3-desc':'p3-desc','t-vision-lbl':'vision-lbl','t-vision-q':'vision-q','t-vision-sub':'vision-sub','t-lbl-reseau':'lbl-reseau','t-lbl-contact':'lbl-contact','t-contact-title':'contact-title','t-contact-desc':'contact-desc','t-c-email-k':'c-email-k','t-c-li-k':'c-li-k','t-c-gh-k':'c-gh-k','t-c-lieu-k':'c-lieu-k','t-c-lieu-v':'c-lieu-v','t-contact-quote':'contact-quote','t-contact-cite':'contact-cite','t-foot-copy':'foot-copy','t-foot-loc':'foot-loc'};
+const LANGS=['fr','en','es','de'];
+let lIdx=0;
+const langBtn=document.getElementById('langBtn');
+function applyLang(l){Object.entries(IDM).forEach(([id,key])=>{const el=document.getElementById(id);if(el&&T[l][key]!==undefined)el.innerHTML=T[l][key];});document.documentElement.lang=l;}
+langBtn.addEventListener('click',()=>{lIdx=(lIdx+1)%LANGS.length;const l=LANGS[lIdx];langBtn.textContent=l.toUpperCase();langBtn.style.borderColor='var(--gold)';langBtn.style.color='var(--gold)';setTimeout(()=>{langBtn.style.borderColor='';langBtn.style.color='';},700);applyLang(l);});
 
-const IDM = {
-  't-nav-about':'nav-about','t-nav-skills':'nav-skills','t-nav-projects':'nav-projects','t-nav-parcours':'nav-parcours','t-nav-reseau':'nav-reseau','t-nav-contact':'nav-contact',
-  'tm-about':'nav-about','tm-skills':'nav-skills','tm-projects':'nav-projects','tm-parcours':'nav-parcours','tm-reseau':'nav-reseau','tm-contact':'nav-contact',
-  't-hero-tag':'hero-tag','t-hero-quote':'hero-quote',
-  't-chip-1':'chip-1','t-chip-2':'chip-2','t-chip-3':'chip-3','t-chip-4':'chip-4',
-  't-btn-projects':'btn-projects','t-btn-contact':'btn-contact',
-  't-hero-loc':'hero-loc','t-scroll-hint':'scroll-hint',
-  't-lbl-about':'lbl-about','t-about-h':'about-h',
-  't-about-p1':'about-p1','t-about-p2':'about-p2','t-about-p3':'about-p3',
-  't-row-statut-k':'row-statut-k','t-row-statut-v':'row-statut-v',
-  't-row-lieu-k':'row-lieu-k','t-row-lieu-v':'row-lieu-v',
-  't-row-lang-k':'row-lang-k','t-row-lang-v':'row-lang-v','t-row-email-k':'row-email-k',
-  't-lbl-skills':'lbl-skills','t-skill-t1':'skill-t1','t-skill-t2':'skill-t2','t-skill-t3':'skill-t3',
-  't-train-title-1':'train-title-1','t-train-title-2':'train-title-2',
-  't-acc1-title':'acc1-title','t-acc1-desc':'acc1-desc',
-  't-acc2-title':'acc2-title','t-acc2-desc':'acc2-desc',
-  't-lbl-tech-1':'lbl-tech','t-lbl-tech-2':'lbl-tech',
-  't-parcours-title':'parcours-title',
-  't-p-th-year':'p-th-year','t-p-th-role':'p-th-role','t-p-th-desc':'p-th-desc',
-  't-p1-year':'p1-year','t-p1-role':'p1-role','t-p1-desc':'p1-desc',
-  't-p2-year':'p2-year','t-p2-role':'p2-role','t-p2-desc':'p2-desc',
-  't-p3-year':'p3-year','t-p3-role':'p3-role','t-p3-desc':'p3-desc',
-  't-vision-lbl':'vision-lbl','t-vision-q':'vision-q','t-vision-sub':'vision-sub',
-  't-lbl-reseau':'lbl-reseau','t-lbl-contact':'lbl-contact',
-  't-contact-title':'contact-title','t-contact-desc':'contact-desc',
-  't-c-email-k':'c-email-k','t-c-li-k':'c-li-k','t-c-gh-k':'c-gh-k','t-c-lieu-k':'c-lieu-k','t-c-lieu-v':'c-lieu-v',
-  't-contact-quote':'contact-quote','t-contact-cite':'contact-cite',
-  't-foot-copy':'foot-copy','t-foot-loc':'foot-loc',
-};
+/* ====== CURSOR ====== */
+const cur=document.getElementById('cur'),curR=document.getElementById('curRing');
+document.addEventListener('mousemove',e=>{cur.style.left=e.clientX+'px';cur.style.top=e.clientY+'px';setTimeout(()=>{curR.style.left=e.clientX+'px';curR.style.top=e.clientY+'px';},60);});
+document.querySelectorAll('a,button,.ah,.rc').forEach(el=>{el.addEventListener('mouseenter',()=>{curR.style.transform='translate(-50%,-50%) scale(1.8)';curR.style.opacity='.25';cur.style.transform='translate(-50%,-50%) scale(0)';});el.addEventListener('mouseleave',()=>{curR.style.transform='translate(-50%,-50%) scale(1)';curR.style.opacity='.5';cur.style.transform='translate(-50%,-50%) scale(1)';});});
 
-/* Cycle FR → EN → ES → DE → FR */
-const LANGS = ['fr','en','es','de'];
-const LANG_LABELS = { fr:'FR', en:'EN', es:'ES', de:'DE' };
-let langIdx = 0;
-const langBtn = document.getElementById('langBtn');
+/* ====== SCROLL PROGRESS ====== */
+const pfill=document.getElementById('pfill');
+window.addEventListener('scroll',()=>{const p=window.scrollY/(document.body.scrollHeight-window.innerHeight);pfill.style.transform=`scaleY(${p})`;},{passive:true});
 
-function applyLang(l) {
-  Object.entries(IDM).forEach(([id, key]) => {
-    const el = document.getElementById(id);
-    if (el && T[l][key] !== undefined) el.innerHTML = T[l][key];
-  });
-  document.documentElement.lang = l;
-}
+/* ====== NAV ====== */
+const nav=document.getElementById('nav');
+window.addEventListener('scroll',()=>{nav.style.borderBottom=window.scrollY>20?'1px solid rgba(255,255,255,.07)':'none';},{passive:true});
 
-langBtn.addEventListener('click', () => {
-  langIdx = (langIdx + 1) % LANGS.length;
-  const l = LANGS[langIdx];
-  langBtn.textContent = LANG_LABELS[l];
-  langBtn.style.borderColor = 'var(--gold)';
-  langBtn.style.color = 'var(--gold)';
-  setTimeout(() => { langBtn.style.borderColor = ''; langBtn.style.color = ''; }, 700);
-  applyLang(l);
-});
+/* ====== BURGER ====== */
+const burger=document.getElementById('burger'),mmenu=document.getElementById('mmenu'),bsp=burger.querySelectorAll('span'),mls=document.querySelectorAll('.ml');
+function closeMM(){mmenu.classList.remove('open');bsp[0].style.transform='';bsp[1].style.opacity='';bsp[2].style.transform='';}
+burger.addEventListener('click',()=>{const o=mmenu.classList.toggle('open');if(o){bsp[0].style.transform='translateY(6px) rotate(45deg)';bsp[1].style.opacity='0';bsp[2].style.transform='translateY(-6px) rotate(-45deg)';}else closeMM();});
+mls.forEach(l=>l.addEventListener('click',closeMM));
 
-/* ============ DARK MODE ============ */
-let dark = false;
-const moonBtn = document.getElementById('moonBtn');
-moonBtn.addEventListener('click', () => {
-  dark = !dark;
-  document.body.classList.toggle('dark', dark);
-  moonBtn.textContent = dark ? '☀' : '☽';
-  moonBtn.style.color = dark ? 'var(--gold)' : '';
-});
+/* ====== SCROLL REVEAL ====== */
+const rvs=document.querySelectorAll('.rv');
+const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('vis');obs.unobserve(e.target);}});},{threshold:.1});
+rvs.forEach(el=>obs.observe(el));
 
-/* ============ CURSOR ============ */
-const cur = document.getElementById('cur'), curR = document.getElementById('curRing');
-document.addEventListener('mousemove', e => {
-  cur.style.left = e.clientX + 'px'; cur.style.top = e.clientY + 'px';
-  setTimeout(() => { curR.style.left = e.clientX + 'px'; curR.style.top = e.clientY + 'px'; }, 60);
-});
-document.querySelectorAll('a,button,.ah,.rc').forEach(el => {
-  el.addEventListener('mouseenter', () => { curR.style.transform = 'translate(-50%,-50%) scale(1.8)'; curR.style.opacity = '.25'; cur.style.transform = 'translate(-50%,-50%) scale(0)'; });
-  el.addEventListener('mouseleave', () => { curR.style.transform = 'translate(-50%,-50%) scale(1)'; curR.style.opacity = '.5'; cur.style.transform = 'translate(-50%,-50%) scale(1)'; });
-});
+/* ====== ACCORDION ====== */
+function toggleAcc(id){const item=document.getElementById(id),body=item.querySelector('.ab'),isOpen=item.classList.contains('open');document.querySelectorAll('.ai').forEach(i=>{i.classList.remove('open');i.querySelector('.ab').style.maxHeight='0';});if(!isOpen){item.classList.add('open');body.style.maxHeight=body.scrollHeight+'px';}}
 
-/* ============ SCROLL PROGRESS ============ */
-const pfill = document.getElementById('pfill');
-window.addEventListener('scroll', () => {
-  const p = window.scrollY / (document.body.scrollHeight - window.innerHeight);
-  pfill.style.transform = `scaleY(${p})`;
-}, { passive: true });
+/* ====== HERO ANIM ====== */
+document.querySelectorAll('.hero-l > *, .hero-r').forEach((el,i)=>{el.style.opacity='0';el.style.transform='translateY(20px)';el.style.transition=`opacity .7s ${i*.12}s ease,transform .7s ${i*.12}s ease`;setTimeout(()=>{el.style.opacity='1';el.style.transform='translateY(0)';},150);});
 
-/* ============ NAV ============ */
-const nav = document.getElementById('nav');
-window.addEventListener('scroll', () => { nav.style.borderBottom = window.scrollY > 20 ? '1px solid #2c2520' : 'none'; }, { passive: true });
-
-/* ============ BURGER ============ */
-const burger = document.getElementById('burger'), mmenu = document.getElementById('mmenu'), bsp = burger.querySelectorAll('span'), mls = document.querySelectorAll('.ml');
-function closeMM() { mmenu.classList.remove('open'); bsp[0].style.transform = ''; bsp[1].style.opacity = ''; bsp[2].style.transform = ''; }
-burger.addEventListener('click', () => {
-  const o = mmenu.classList.toggle('open');
-  if (o) { bsp[0].style.transform = 'translateY(6px) rotate(45deg)'; bsp[1].style.opacity = '0'; bsp[2].style.transform = 'translateY(-6px) rotate(-45deg)'; } else closeMM();
-});
-mls.forEach(l => l.addEventListener('click', closeMM));
-
-/* ============ SCROLL REVEAL ============ */
-const rvs = document.querySelectorAll('.rv');
-const obs = new IntersectionObserver(entries => { entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('vis'); obs.unobserve(e.target); } }); }, { threshold: .1 });
-rvs.forEach(el => obs.observe(el));
-
-/* ============ ACCORDION ============ */
-function toggleAcc(id) {
-  const item = document.getElementById(id), body = item.querySelector('.ab'), isOpen = item.classList.contains('open');
-  document.querySelectorAll('.ai').forEach(i => { i.classList.remove('open'); i.querySelector('.ab').style.maxHeight = '0'; });
-  if (!isOpen) { item.classList.add('open'); body.style.maxHeight = body.scrollHeight + 'px'; }
-}
-
-/* ============ HERO ANIM ============ */
-document.querySelectorAll('.hero-l > *, .hero-r').forEach((el, i) => {
-  el.style.opacity = '0'; el.style.transform = 'translateY(20px)';
-  el.style.transition = `opacity .7s ${i * .12}s ease,transform .7s ${i * .12}s ease`;
-  setTimeout(() => { el.style.opacity = '1'; el.style.transform = 'translateY(0)'; }, 150);
-});
-
-/* ============ VISION DOTS ============ */
-document.querySelectorAll('.vd').forEach(d => { d.addEventListener('click', () => { document.querySelectorAll('.vd').forEach(x => x.classList.remove('on')); d.classList.add('on'); }); });
+/* ====== VISION DOTS ====== */
+document.querySelectorAll('.vd').forEach(d=>{d.addEventListener('click',()=>{document.querySelectorAll('.vd').forEach(x=>x.classList.remove('on'));d.classList.add('on');});});
 </script>
 </body>
 </html>
